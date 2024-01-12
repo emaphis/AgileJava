@@ -1,3 +1,4 @@
+package studentinfo;
 
 /**
  * Represents a Student
