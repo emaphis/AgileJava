@@ -9,13 +9,11 @@ import java.util.ArrayList;
 class CourseSession {
     private String department;
     private String number;
-    private int numberOfStudents;
     private ArrayList<Student> students;
 
     CourseSession(String department, String number) {
         this.department = department;
         this.number = number;
-        this.numberOfStudents = 0;
         this.students = new ArrayList<Student>();
     }
 
@@ -28,12 +26,11 @@ class CourseSession {
     }
 
     int getNumberOfStudents() {
-        return numberOfStudents;
+        return students.size();
     }
 
     void enroll(Student student) {
         students.add(student);
-        numberOfStudents++;
     }
 
     ArrayList<Student> getAllStudents() {
