@@ -7,13 +7,13 @@ import junit.framework.TestCase;
  * @author emaph
  */
 public class StudentTest extends TestCase {
+    final String firstStudentName = "Jane Doe";
+    final String secondStudentName = "Joe Blow";
 
     public void testCreate() {
-        final String firstStudentName = "Jane Doe";
         Student student = new Student(firstStudentName);
         assertEquals(firstStudentName, student.getName());
 
-        final String secondStudentName = "Joe Blow";
         Student secondStudent = new Student(secondStudentName);
         assertEquals(secondStudentName, secondStudent.getName());
 
