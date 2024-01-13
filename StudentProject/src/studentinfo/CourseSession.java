@@ -5,7 +5,8 @@ import java.util.*;
 
 
 /**
- * Class representing a Course Session
+ * Provides a representation of a single=semester
+ * session of a specific university course
  * @author emaph
  */
 class CourseSession {
