@@ -47,4 +47,5 @@ public class CourseSessionTest extends TestCase {
         Date sixteenWeeksOut = new Date(year, month, date);
         assertEquals(sixteenWeeksOut, session.getEndDate());
     }
+
 }
