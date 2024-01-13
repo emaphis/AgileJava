@@ -1,19 +1,28 @@
 package chess;
 
+import java.util.ArrayList;
+
 /**
  * A class that represents a Chess Board containing a number
  * of Pawns
  * @author emaph
  */
 class ChessBoard {
-    private int numberPieces;
+    private ArrayList<Pawn> pieces = new ArrayList<Pawn>();
 
     public ChessBoard() {
-        this.numberPieces = 0;
     }
 
     int getNumberPieces() {
-        return numberPieces;
+        return pieces.size();
+    }
+
+    void addPiece(Pawn piece) {
+        pieces.add(piece);
+    }
+
+    Pawn getPiece(int index) {
+        return pieces.get(index);
     }
 
 }
