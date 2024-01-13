@@ -8,13 +8,13 @@ package pieces;
     public static final String WHITE = "white";
     public static final String BLACK = "black";
 
-    private String color;
+    private final String color;
 
     /**
      * Create a Pawn of default color (white)
      */
     public Pawn() {
-        this.color = this.WHITE;
+        this.color = Pawn.WHITE;
     }
 
     /**
