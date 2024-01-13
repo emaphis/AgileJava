@@ -1,3 +1,5 @@
+package chess;
+
 import junit.framework.TestCase;
 
 /**
