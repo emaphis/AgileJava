@@ -1,4 +1,4 @@
-package chess;
+package pieces;
 
 import junit.framework.TestCase;
 

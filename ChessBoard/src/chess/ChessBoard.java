@@ -1,5 +1,6 @@
 package chess;
 
+import pieces.Pawn;
 import java.util.ArrayList;
 
 /**

@@ -1,4 +1,4 @@
-package chess;
+package pieces;
 
 /**
  * A class to represent pawns
