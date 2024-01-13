@@ -4,16 +4,16 @@ package pieces;
  * A class to represent pawns
  * @author emaph
  */
-class Pawn {
-    static final String WHITE = "white";
-    static final String BLACK = "black";
+ public class Pawn {
+    public static final String WHITE = "white";
+    public static final String BLACK = "black";
 
     private String color;
 
     /**
      * Create a Pawn of default color (white)
      */
-    Pawn() {
+    public Pawn() {
         this.color = this.WHITE;
     }
 
