@@ -4,10 +4,13 @@
  * @author emaph
  */
 class Pawn {
+    static final String WHITE = "white";
+    static final String BLACK = "black";
+
     private String color;
 
     Pawn() {
-        this.color = "white";
+            this.color = this.WHITE;
     }
 
     public Pawn(String color) {
