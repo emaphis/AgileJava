@@ -1,4 +1,4 @@
-package studentinfo;
+package sis.studentinfo;
 
 /**
  * Produce a Roster Report of Students
