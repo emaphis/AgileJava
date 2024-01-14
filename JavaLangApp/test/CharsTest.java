@@ -27,4 +27,17 @@ public class CharsTest extends TestCase {
         assertFalse(Character.isWhitespace('.'));
         assertFalse(Character.isWhitespace('-'));
     }
+
+    public void testLegalIdentifierChars() {
+        assertTrue(Character.isJavaIdentifierPart('A'));
+        assertTrue(Character.isJavaIdentifierPart('a'));
+        assertTrue(Character.isJavaIdentifierPart('7'));
+        assertTrue(Character.isJavaIdentifierPart('_'));
+
+        // not
+        assertFalse(Character.isJavaIdentifierPart('^'));
+        assertFalse(Character.isJavaIdentifierPart('-'));
+        assertFalse(Character.isJavaIdentifierPart(' '));
+        assertFalse(Character.isJavaIdentifierPart('\n'));
+    }
 }
