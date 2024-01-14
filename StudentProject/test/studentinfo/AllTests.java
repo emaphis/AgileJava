@@ -14,6 +14,7 @@ public class AllTests {
         suite.addTestSuite(StudentTest.class);
         suite.addTestSuite(CourseSessionTest.class);
         suite.addTestSuite(RosterReportTest.class);
+        suite.addTestSuite(DateUntilTest.class);
         return suite;
     }
 }
