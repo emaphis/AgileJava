@@ -14,4 +14,17 @@ public class CharsTest extends TestCase {
         assertEquals('\101', captialA);  // octal
     }
 
+    public void testWhiteSpace() {
+        assertTrue(Character.isWhitespace(' '));
+        assertTrue(Character.isWhitespace('\n'));
+        assertTrue(Character.isWhitespace('\t'));
+        assertTrue(Character.isWhitespace('\r'));
+
+        // not
+        assertFalse(Character.isWhitespace('\b'));
+        assertFalse(Character.isWhitespace('A'));
+        assertFalse(Character.isWhitespace('5'));
+        assertFalse(Character.isWhitespace('.'));
+        assertFalse(Character.isWhitespace('-'));
+    }
 }
