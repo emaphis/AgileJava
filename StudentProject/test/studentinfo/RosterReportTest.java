@@ -19,6 +19,8 @@ public class RosterReportTest extends TestCase {
         RosterReporter report = new RosterReporter(session);
         String rosterReport = report.getRosterReport();
 
+        //System.out.println(rosterReport);
+
         assertEquals(
                 RosterReporter.ROSTER_REPORT_HEADER +
                 "A" + RosterReporter.NEWLINE +
@@ -26,7 +28,6 @@ public class RosterReportTest extends TestCase {
                 RosterReporter.ROSTER_REPORT_FOOTER +
                 "2" +    RosterReporter.NEWLINE,
                 rosterReport);
-        //System.out.println(rosterReport);
     }
 
 }
