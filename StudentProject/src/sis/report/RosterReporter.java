@@ -1,4 +1,6 @@
-package sis.studentinfo;
+package sis.report;
+
+import sis.studentinfo.*;
 
 /**
  * Produce a Roster Report of Students
@@ -12,12 +14,11 @@ public class RosterReporter {
     static final String ROSTER_REPORT_FOOTER =
             NEWLINE + "# students = ";
 
-    private CourseSession session;
+    private final CourseSession session;
 
     public RosterReporter(CourseSession session) {
         this.session = session;
     }
-
 
     String getRosterReport() {
         StringBuilder buffer = new StringBuilder();

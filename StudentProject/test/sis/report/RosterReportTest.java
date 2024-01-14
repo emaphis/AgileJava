@@ -1,6 +1,7 @@
-package sis.studentinfo;
+package sis.report;
 
 import junit.framework.TestCase;
+import sis.studentinfo.*;
 
 /**
  * Test the Roster Report

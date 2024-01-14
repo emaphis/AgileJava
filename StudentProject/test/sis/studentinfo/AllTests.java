@@ -1,5 +1,6 @@
 package sis.studentinfo;
 
+import sis.report.RosterReportTest;
 import junit.framework.TestSuite;
 
 

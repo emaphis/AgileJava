@@ -9,45 +9,45 @@ import java.util.*;
  * session of a specific university course
  * @author emaph
  */
-class CourseSession {
+public class CourseSession {
 
-    private String department;
-    private String number;
-    private ArrayList<Student> students;
-    private Date startDate;
+    private final String department;
+    private final String number;
+    private final ArrayList<Student> students;
+    private final Date startDate;
 
-    CourseSession(String department, String number, Date startDate) {
+    public CourseSession(String department, String number, Date startDate) {
         this.department = department;
         this.number = number;
         this.students = new ArrayList<Student>();
         this.startDate = startDate;
     }
 
-    String getDepartment() {
+    public String getDepartment() {
         return department;
     }
 
-    String getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    int getNumberOfStudents() {
+    public int getNumberOfStudents() {
         return students.size();
     }
 
-    Date getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    void enroll(Student student) {
+    public void enroll(Student student) {
         students.add(student);
     }
 
-    Student get(int index) {
+    public Student get(int index) {
         return students.get(index);
     }
 
-    Date getEndDate() {
+    public Date getEndDate() {
         GregorianCalendar calendar = new GregorianCalendar();
         calendar.setTime(startDate);
         int numberOfDays = 16 * 7 - 3;
@@ -55,7 +55,7 @@ class CourseSession {
         return calendar.getTime();
     }
 
-    ArrayList<Student> getAllStudents() {
+    public ArrayList<Student> getAllStudents() {
         return students;
     }
 
