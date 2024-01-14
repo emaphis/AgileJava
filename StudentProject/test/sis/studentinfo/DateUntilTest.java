@@ -1,6 +1,5 @@
 package sis.studentinfo;
 
-import sis.studentinfo.DateUtil;
 import junit.framework.TestCase;
 import java.util.*;
 
