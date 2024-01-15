@@ -11,11 +11,14 @@ public class PawnTest extends TestCase {
    public void testCreate() {
         Pawn pawn = new Pawn();
         assertEquals(Pawn.WHITE, pawn.getColor());
+        assertEquals('p', pawn.getRepresentation());
 
-        Pawn blackPawn = new Pawn(Pawn.BLACK);
+        Pawn blackPawn = new Pawn(Pawn.BLACK, 'P');
         assertEquals(Pawn.BLACK, blackPawn.getColor());
+        assertEquals('P', blackPawn.getRepresentation());
 
         assertEquals(Pawn.WHITE, pawn.getColor());
+        assertEquals('p', pawn.getRepresentation());
     }
 
     public void testCreatePawnDefaultConstructor() {
