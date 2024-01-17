@@ -12,6 +12,23 @@ class ChessBoard {
     private ArrayList<Pawn> pieces = new ArrayList<Pawn>();
 
     public ChessBoard() {
+        addPiece(new Pawn());
+        addPiece(new Pawn());
+        addPiece(new Pawn());
+        addPiece(new Pawn());
+        addPiece(new Pawn());
+        addPiece(new Pawn());
+        addPiece(new Pawn());
+        addPiece(new Pawn());
+
+        addPiece(new Pawn());
+        addPiece(new Pawn());
+        addPiece(new Pawn());
+        addPiece(new Pawn());
+        addPiece(new Pawn());
+        addPiece(new Pawn());
+        addPiece(new Pawn());
+        addPiece(new Pawn());
     }
 
     /**
@@ -26,7 +43,7 @@ class ChessBoard {
      * Add a Pawn to the board
      * @param piece
      */
-    void addPiece(Pawn piece) {
+    private final void addPiece(Pawn piece) {
         pieces.add(piece);
     }
 

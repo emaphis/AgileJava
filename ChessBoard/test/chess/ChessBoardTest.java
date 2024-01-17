@@ -17,22 +17,22 @@ public class ChessBoardTest extends TestCase {
     }
 
     public void testCreate() {
-        assertEquals(0, board.getNumberPieces());
+        assertEquals(16, board.getNumberPieces());
     }
 
-    public void testAddPieces() {
-        assertEquals(0, board.getNumberPieces());
-
-        Pawn pawn1 = new Pawn();
-        board.addPiece(pawn1);
-        assertEquals(1, board.getNumberPieces());
-        assertEquals(pawn1, board.getPiece(0));
-
-        Pawn pawn2 = new Pawn();
-        board.addPiece(pawn2);
-        assertEquals(2, board.getNumberPieces());
-        assertEquals(pawn2, board.getPiece(1));
-
-        // board.addPiece(new Integer(5)); // Compiler error
+    /**
+     * Test pieces are already added to new board
+     */
+    public void testzNewBoard() {
+        assertEquals(16, board.getNumberPieces());
+        assertEquals(Pawn.WHITE, board.getPiece(0).getColor());
+        assertEquals('p', board.getPiece(0).getRepresentation());
+        assertEquals(Pawn.WHITE, board.getPiece(2).getColor());
+        assertEquals('p', board.getPiece(2).getRepresentation());
+        assertEquals(Pawn.WHITE, board.getPiece(8).getColor());
+        assertEquals('p', board.getPiece(8).getRepresentation());
+        assertEquals(Pawn.WHITE, board.getPiece(15).getColor());
+        assertEquals('p', board.getPiece(15).getRepresentation());
     }
+
 }
