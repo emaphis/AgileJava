@@ -18,21 +18,29 @@ public class ChessBoardTest extends TestCase {
 
     public void testCreate() {
         assertEquals(16, board.getNumberPieces());
+        assertEquals("pppppppp", board.printRank(board.rank2));
+        assertEquals("PPPPPPPP", board.printRank(board.rank7));
     }
 
     /**
      * Test pieces are already added to new board
      */
-    public void testzNewBoard() {
+    public void testNewBoard() {
         assertEquals(16, board.getNumberPieces());
-        assertEquals(Pawn.WHITE, board.getPiece(0).getColor());
-        assertEquals('p', board.getPiece(0).getRepresentation());
-        assertEquals(Pawn.WHITE, board.getPiece(2).getColor());
-        assertEquals('p', board.getPiece(2).getRepresentation());
-        assertEquals(Pawn.WHITE, board.getPiece(8).getColor());
-        assertEquals('p', board.getPiece(8).getRepresentation());
-        assertEquals(Pawn.WHITE, board.getPiece(15).getColor());
-        assertEquals('p', board.getPiece(15).getRepresentation());
+
+        assertEquals(Pawn.WHITE, board.getPiece(board.rank2, 0).getColor());
+        assertEquals('p', board.getPiece(board.rank2, 0).getRepresentation());
+        assertEquals(Pawn.WHITE, board.getPiece(board.rank2, 3).getColor());
+        assertEquals('p', board.getPiece(board.rank2, 3).getRepresentation());
+        assertEquals(Pawn.WHITE, board.getPiece(board.rank2, 7).getColor());
+        assertEquals('p', board.getPiece(board.rank2, 7).getRepresentation());
+
+        assertEquals(Pawn.BLACK, board.getPiece(board.rank7, 0).getColor());
+        assertEquals('P', board.getPiece(board.rank7, 0).getRepresentation());
+        assertEquals(Pawn.BLACK, board.getPiece(board.rank7, 3).getColor());
+        assertEquals('P', board.getPiece(board.rank7, 3).getRepresentation());
+        assertEquals(Pawn.BLACK, board.getPiece(board.rank7, 7).getColor());
+        assertEquals('P', board.getPiece(board.rank7, 7).getRepresentation());
     }
 
 }
