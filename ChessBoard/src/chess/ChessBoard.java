@@ -9,6 +9,8 @@ import java.util.ArrayList;
  * @author emaph
  */
 class ChessBoard {
+    public static final String NEWLINE = System.getProperty("line.separator");
+
     private ArrayList<Pawn> rank2 = new ArrayList<Pawn>(8);
     private ArrayList<Pawn> rank7 = new ArrayList<Pawn>(8);
 
@@ -95,20 +97,21 @@ class ChessBoard {
         StringBuilder builder = new StringBuilder();
 
         builder.append("........");
-        builder.append('\n');
+        builder.append(NEWLINE);
         builder.append(printRank7());
-        builder.append('\n');
+        builder.append(NEWLINE);
         builder.append("........");
-        builder.append('\n');
+        builder.append(NEWLINE);
         builder.append("........");
-        builder.append('\n');
+        builder.append(NEWLINE);
         builder.append("........");
-        builder.append('\n');
+        builder.append(NEWLINE);
         builder.append("........");
-        builder.append('\n');
+        builder.append(NEWLINE);
         builder.append(printRank2());
-        builder.append('\n');
+        builder.append(NEWLINE);
         builder.append("........");
+        builder.append(NEWLINE);
 
         return builder.toString();
     }

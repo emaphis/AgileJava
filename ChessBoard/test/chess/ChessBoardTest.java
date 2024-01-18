@@ -1,7 +1,6 @@
 
 package chess;
 
-import pieces.Pawn;
 import junit.framework.TestCase;
 
 /**
@@ -24,17 +23,17 @@ public class ChessBoardTest extends TestCase {
 
     public void testBoardRepresentation() {
         String boardRep =
-                "........\n" +
-                "PPPPPPPP\n" +
-                "........\n" +
-                "........\n" +
-                "........\n" +
-                "........\n" +
-                "pppppppp\n" +
-                "........";
+                "........" + ChessBoard.NEWLINE +
+                "PPPPPPPP" + ChessBoard.NEWLINE +
+                "........" + ChessBoard.NEWLINE +
+                "........" + ChessBoard.NEWLINE +
+                "........" + ChessBoard.NEWLINE +
+                "........" + ChessBoard.NEWLINE +
+                "pppppppp" + ChessBoard.NEWLINE +
+                "........" + ChessBoard.NEWLINE;
         assertEquals(boardRep, board.printBoard());
 
-        //System.out.println(board.printBoard());
+        System.out.println(board.printBoard());
     }
 
 }
