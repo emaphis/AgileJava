@@ -9,15 +9,15 @@ import java.util.ArrayList;
  * @author emaph
  */
 class ChessBoard {
-    public ArrayList<Pawn> rank2 = new ArrayList<Pawn>();
-    public ArrayList<Pawn> rank7 = new ArrayList<Pawn>();
+    private ArrayList<Pawn> rank2 = new ArrayList<Pawn>(8);
+    private ArrayList<Pawn> rank7 = new ArrayList<Pawn>(8);
 
     public ChessBoard() {
         initalize();
     }
 
     /**
-     * Initialize Boards Piece Ranks lists
+     * Initialize the Board with Piece by Rank.
      */
     private final void initalize() {
         addPiece(rank2, new Pawn());
@@ -66,12 +66,50 @@ class ChessBoard {
         return rank.get(index);
     }
 
-    public String printRank(ArrayList<Pawn> rank) {
+    /**
+     * Print the given rank.
+     * @param rank
+     * @return rank in printable form
+     */
+    private String printRank(ArrayList<Pawn> rank) {
         StringBuilder build = new StringBuilder();
         for (int i = 0; i < rank.size(); i++) {
-            build.append(rank.get(i).getRepresentation());
+            Pawn piece = rank.get(i);
+            if (piece != null)
+                build.append(piece.getRepresentation());
+            else
+                build.append('.');
         }
         return build.toString();
     }
 
+    public String printRank2() {
+        return printRank(rank2);
+    }
+
+    public String printRank7() {
+        return printRank(rank7);
+    }
+
+    public String printBoard() {
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("........");
+        builder.append('\n');
+        builder.append(printRank7());
+        builder.append('\n');
+        builder.append("........");
+        builder.append('\n');
+        builder.append("........");
+        builder.append('\n');
+        builder.append("........");
+        builder.append('\n');
+        builder.append("........");
+        builder.append('\n');
+        builder.append(printRank2());
+        builder.append('\n');
+        builder.append("........");
+
+        return builder.toString();
+    }
 }
