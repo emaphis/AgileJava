@@ -10,6 +10,7 @@ import java.util.*;
  * @author emaph
  */
 public class CourseSession {
+    static int count;
 
     private final String department;
     private final String number;
@@ -21,6 +22,7 @@ public class CourseSession {
         this.number = number;
         this.students = new ArrayList<Student>();
         this.startDate = startDate;
+        CourseSession.count++;
     }
 
     public String getDepartment() {
