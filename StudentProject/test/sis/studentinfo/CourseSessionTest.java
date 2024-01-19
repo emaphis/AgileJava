@@ -15,7 +15,7 @@ public class CourseSessionTest extends TestCase {
     public void setUp() {
         startDate = DateUtil.createDate(2003, 1, 6);
         session = createCourseSession();
-        CourseSession.count = 0;
+        CourseSession.resetCount();
     }
 
     public void testCreate() {
@@ -44,11 +44,11 @@ public class CourseSessionTest extends TestCase {
     }
 
     public void testCount() {
-        CourseSession.count = 0;
+        CourseSession.resetCount();
         createCourseSession();
-        assertEquals(1, CourseSession.count);
+        assertEquals(1, CourseSession.getCount());
         createCourseSession();
-        assertEquals(2, CourseSession.count);
+        assertEquals(2, CourseSession.getCount());
     }
 
     private CourseSession createCourseSession() {
