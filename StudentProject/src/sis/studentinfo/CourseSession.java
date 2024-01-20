@@ -24,17 +24,28 @@ public class CourseSession {
         return count;
     }
 
+    /**
+     * CourseSession factory method
+     * @param departemnt
+     * @param number
+     * @param startDate
+     * @return new CourseSession
+     */
+    public static CourseSession create(String departemnt, String number, Date startDate) {
+        CourseSession.incrementCount();
+        return new CourseSession(departemnt, number, startDate);
+    }
+
     private final String department;
     private final String number;
     private final ArrayList<Student> students;
     private final Date startDate;
 
-    public CourseSession(String department, String number, Date startDate) {
+    private CourseSession(String department, String number, Date startDate) {
         this.department = department;
         this.number = number;
         this.students = new ArrayList<Student>();
         this.startDate = startDate;
-        CourseSession.incrementCount();
     }
 
     public String getDepartment() {
