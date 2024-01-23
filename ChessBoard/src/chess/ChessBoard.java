@@ -21,14 +21,14 @@ class ChessBoard {
      * Initialize the Board with Piece by Rank.
      */
     private final void initalize() {
-        addPiece(rank2, new Piece());
-        addPiece(rank2, new Piece());
-        addPiece(rank2, new Piece());
-        addPiece(rank2, new Piece());
-        addPiece(rank2, new Piece());
-        addPiece(rank2, new Piece());
-        addPiece(rank2, new Piece());
-        addPiece(rank2, new Piece());
+        addPiece(rank2, new Piece(Piece.WHITE, "pawn"));
+        addPiece(rank2, new Piece(Piece.WHITE, "pawn"));
+        addPiece(rank2, new Piece(Piece.WHITE, "pawn"));
+        addPiece(rank2, new Piece(Piece.WHITE, "pawn"));
+        addPiece(rank2, new Piece(Piece.WHITE, "pawn"));
+        addPiece(rank2, new Piece(Piece.WHITE, "pawn"));
+        addPiece(rank2, new Piece(Piece.WHITE, "pawn"));
+        addPiece(rank2, new Piece(Piece.WHITE, "pawn"));
 
         addPiece(rank7, new Piece(Piece.BLACK, "pawn"));
         addPiece(rank7, new Piece(Piece.BLACK, "pawn"));

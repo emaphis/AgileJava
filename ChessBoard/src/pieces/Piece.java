@@ -13,14 +13,6 @@ package pieces;
     private final String name;
 
     /**
-     * Create a Pawn of default color and printable representation (white/'p')
-     */
-    public Piece() {
-        this.color = Piece.WHITE;
-        this.name = "pawn";
-    }
-
-    /**
      * Create Pawn of a given color and printable representation
      * @param color
      */
