@@ -11,7 +11,6 @@ package pieces;
 
     private final String color;
     private final String name;
-    private final char representation;
 
     /**
      * Create a Pawn of default color and printable representation (white/'p')
@@ -19,7 +18,6 @@ package pieces;
     public Piece() {
         this.color = Piece.WHITE;
         this.name = "pawn";
-        this.representation = 'p';
     }
 
     /**
@@ -29,10 +27,7 @@ package pieces;
     public Piece(String color, String name) {
         this.color = color;
         this.name = "name";
-        if (color.equals(WHITE))
-            this.representation = 'p';
-        else
-            this.representation = 'P';
+
     }
 
     /**
@@ -44,9 +39,16 @@ package pieces;
     }
 
     /**
-     * @return printable representation
+     * @return printable representation based on Piece.color
      */
     public char getRepresentation() {
+        char representation;
+
+        if (color.equals(WHITE))
+            representation = 'p';
+        else
+            representation = 'P';
+
         return representation;
     }
 }
