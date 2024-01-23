@@ -14,32 +14,25 @@ class ChessBoard {
     private ArrayList<Piece> rank7 = new ArrayList<Piece>(8);
 
     public ChessBoard() {
-        initalize();
+        //initalize();
     }
 
     /**
      * Initialize the Board with Piece by Rank.
      */
-    private final void initalize() {
-        addPiece(rank2, Piece.create(Piece.WHITE, "pawn"));
-        addPiece(rank2, Piece.create(Piece.WHITE, "pawn"));
-        addPiece(rank2, Piece.create(Piece.WHITE, "pawn"));
-        addPiece(rank2, Piece.create(Piece.WHITE, "pawn"));
-        addPiece(rank2, Piece.create(Piece.WHITE, "pawn"));
-        addPiece(rank2, Piece.create(Piece.WHITE, "pawn"));
-        addPiece(rank2, Piece.create(Piece.WHITE, "pawn"));
-        addPiece(rank2, Piece.create(Piece.WHITE, "pawn"));
+    public final void initalize() {
+        rank2 = intitalizePawnRank(Piece.WHITE);
+        rank7 = intitalizePawnRank(Piece.BLACK);
 
-        addPiece(rank7, Piece.create(Piece.BLACK, "pawn"));
-        addPiece(rank7, Piece.create(Piece.BLACK, "pawn"));
-        addPiece(rank7, Piece.create(Piece.BLACK, "pawn"));
-        addPiece(rank7, Piece.create(Piece.BLACK, "pawn"));
-        addPiece(rank7, Piece.create(Piece.BLACK, "pawn"));
-        addPiece(rank7, Piece.create(Piece.BLACK, "pawn"));
-        addPiece(rank7, Piece.create(Piece.BLACK, "pawn"));
-        addPiece(rank7, Piece.create(Piece.BLACK, "pawn"));
     }
 
+    private ArrayList<Piece> intitalizePawnRank(String color) {
+        ArrayList<Piece> rank = new ArrayList<Piece>();
+        for (int i = 0; i < 8; i++) {
+            rank.add(Piece.create(color, "pawn"));
+        }
+        return rank;
+    }
     /**
      * Return current number of pieces board holds.
      * @return number of pieces
@@ -92,7 +85,7 @@ class ChessBoard {
         return printRank(rank7);
     }
 
-    public String printBoard() {
+    public String print() {
         String board =
             addNewLine("........") +
             addNewLine(printRank7()) +

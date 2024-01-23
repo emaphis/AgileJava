@@ -17,24 +17,22 @@ public class ChessBoardTest extends TestCase {
     }
 
     public void testCreate() {
+        board.initalize();
         assertEquals(16, board.getNumberPieces());
         assertEquals("pppppppp", board.printRank2());
         assertEquals("PPPPPPPP", board.printRank7());
-    }
 
-    public void testBoardRepresentation() {
+        String blankRank = addNewLine("........");
         String boardRep =
                 addNewLine("........") +
                 addNewLine("PPPPPPPP") +
-                addNewLine("........") +
-                addNewLine("........") +
-                addNewLine("........") +
-                addNewLine("........") +
+                blankRank + blankRank +
+                blankRank + blankRank +
                 addNewLine("pppppppp") +
                 addNewLine("........");
 
-        System.out.println(board.printBoard());
-        assertEquals(boardRep, board.printBoard());
+        //System.out.println(board.print());
+        assertEquals(boardRep, board.print());
     }
 
 }
