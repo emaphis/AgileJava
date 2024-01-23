@@ -13,13 +13,22 @@ package pieces;
     private final String name;
 
     /**
+     * Static Piece factory
+     * @param color
+     * @param name
+     * @return new Piece
+     */
+    public static Piece create(String color, String name) {
+        return new Piece(color, name);
+    }
+
+    /**
      * Create Pawn of a given color and printable representation
      * @param color
      */
-    public Piece(String color, String name) {
+    private Piece(String color, String name) {
         this.color = color;
         this.name = "name";
-
     }
 
     /**

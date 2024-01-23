@@ -9,11 +9,11 @@ import junit.framework.TestCase;
 public class PieceTest extends TestCase {
 
    public void testCreate() {
-        Piece pawn = new Piece(Piece.WHITE, "pawn");
+        Piece pawn = Piece.create(Piece.WHITE, "pawn");
         assertEquals(Piece.WHITE, pawn.getColor());
         assertEquals('p', pawn.getRepresentation());
 
-        Piece blackPawn = new Piece(Piece.BLACK, "pawn");
+        Piece blackPawn = Piece.create(Piece.BLACK, "pawn");
         assertEquals(Piece.BLACK, blackPawn.getColor());
         assertEquals('P', blackPawn.getRepresentation());
 
