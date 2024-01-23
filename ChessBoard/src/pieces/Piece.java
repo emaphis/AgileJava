@@ -4,7 +4,7 @@ package pieces;
  * A class to represent pawns
  * @author emaph
  */
- public class Pawn {
+ public class Piece {
     public static final String WHITE = "white";
     public static final String BLACK = "black";
 
@@ -14,8 +14,8 @@ package pieces;
     /**
      * Create a Pawn of default color and printable representation (white/'p')
      */
-    public Pawn() {
-        this.color = Pawn.WHITE;
+    public Piece() {
+        this.color = Piece.WHITE;
         this.representation = 'p';
     }
 
@@ -23,7 +23,7 @@ package pieces;
      * Create Pawn of a given color and printable representation
      * @param color
      */
-    public Pawn(String color, char representation) {
+    public Piece(String color, char representation) {
         this.color = color;
         this.representation = representation;
     }

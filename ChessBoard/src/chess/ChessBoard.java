@@ -1,6 +1,6 @@
 package chess;
 
-import pieces.Pawn;
+import pieces.Piece;
 import java.util.ArrayList;
 import static util.StringUtil.addNewLine;
 
@@ -10,8 +10,8 @@ import static util.StringUtil.addNewLine;
  * @author emaph
  */
 class ChessBoard {
-    private ArrayList<Pawn> rank2 = new ArrayList<Pawn>(8);
-    private ArrayList<Pawn> rank7 = new ArrayList<Pawn>(8);
+    private ArrayList<Piece> rank2 = new ArrayList<Piece>(8);
+    private ArrayList<Piece> rank7 = new ArrayList<Piece>(8);
 
     public ChessBoard() {
         initalize();
@@ -21,23 +21,23 @@ class ChessBoard {
      * Initialize the Board with Piece by Rank.
      */
     private final void initalize() {
-        addPiece(rank2, new Pawn());
-        addPiece(rank2, new Pawn());
-        addPiece(rank2, new Pawn());
-        addPiece(rank2, new Pawn());
-        addPiece(rank2, new Pawn());
-        addPiece(rank2, new Pawn());
-        addPiece(rank2, new Pawn());
-        addPiece(rank2, new Pawn());
+        addPiece(rank2, new Piece());
+        addPiece(rank2, new Piece());
+        addPiece(rank2, new Piece());
+        addPiece(rank2, new Piece());
+        addPiece(rank2, new Piece());
+        addPiece(rank2, new Piece());
+        addPiece(rank2, new Piece());
+        addPiece(rank2, new Piece());
 
-        addPiece(rank7, new Pawn(Pawn.BLACK, 'P'));
-        addPiece(rank7, new Pawn(Pawn.BLACK, 'P'));
-        addPiece(rank7, new Pawn(Pawn.BLACK, 'P'));
-        addPiece(rank7, new Pawn(Pawn.BLACK, 'P'));
-        addPiece(rank7, new Pawn(Pawn.BLACK, 'P'));
-        addPiece(rank7, new Pawn(Pawn.BLACK, 'P'));
-        addPiece(rank7, new Pawn(Pawn.BLACK, 'P'));
-        addPiece(rank7, new Pawn(Pawn.BLACK, 'P'));
+        addPiece(rank7, new Piece(Piece.BLACK, 'P'));
+        addPiece(rank7, new Piece(Piece.BLACK, 'P'));
+        addPiece(rank7, new Piece(Piece.BLACK, 'P'));
+        addPiece(rank7, new Piece(Piece.BLACK, 'P'));
+        addPiece(rank7, new Piece(Piece.BLACK, 'P'));
+        addPiece(rank7, new Piece(Piece.BLACK, 'P'));
+        addPiece(rank7, new Piece(Piece.BLACK, 'P'));
+        addPiece(rank7, new Piece(Piece.BLACK, 'P'));
     }
 
     /**
@@ -52,7 +52,7 @@ class ChessBoard {
      * Add a Pawn to the board in rank2
      * @param piece
      */
-    private void addPiece(ArrayList<Pawn> rank, Pawn piece) {
+    private void addPiece(ArrayList<Piece> rank, Piece piece) {
         rank.add(piece);
     }
 
@@ -63,7 +63,7 @@ class ChessBoard {
      * @param index of Piece
      * @return reference to Piece
      */
-    public Pawn getPiece(ArrayList<Pawn> rank, int index) {
+    public Piece getPiece(ArrayList<Piece> rank, int index) {
         return rank.get(index);
     }
 
@@ -72,10 +72,10 @@ class ChessBoard {
      * @param rank
      * @return rank in printable form
      */
-    private String printRank(ArrayList<Pawn> rank) {
+    private String printRank(ArrayList<Piece> rank) {
         StringBuilder build = new StringBuilder();
         for (int i = 0; i < rank.size(); i++) {
-            Pawn piece = rank.get(i);
+            Piece piece = rank.get(i);
             if (piece != null)
                 build.append(piece.getRepresentation());
             else
