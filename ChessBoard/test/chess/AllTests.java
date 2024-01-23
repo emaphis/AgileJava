@@ -2,6 +2,7 @@ package chess;
 
 import junit.framework.TestSuite;
 import pieces.PawnTest;
+import util.StringUtilTest;
 
 /**
  * Test Suite to run all project tests
@@ -13,6 +14,7 @@ public class AllTests {
         TestSuite suite = new TestSuite();
         suite.addTestSuite(ChessBoardTest.class);
         suite.addTestSuite(PawnTest.class);
+        suite.addTestSuite(StringUtilTest.class);
         return suite;
     }
 

@@ -2,6 +2,7 @@ package chess;
 
 import pieces.Pawn;
 import java.util.ArrayList;
+import static util.StringUtil.addNewLine;
 
 /**
  * A class that represents a Chess Board containing a number
@@ -9,8 +10,6 @@ import java.util.ArrayList;
  * @author emaph
  */
 class ChessBoard {
-    public static final String NEWLINE = System.getProperty("line.separator");
-
     private ArrayList<Pawn> rank2 = new ArrayList<Pawn>(8);
     private ArrayList<Pawn> rank7 = new ArrayList<Pawn>(8);
 
@@ -94,25 +93,16 @@ class ChessBoard {
     }
 
     public String printBoard() {
-        StringBuilder builder = new StringBuilder();
+        String board =
+            addNewLine("........") +
+            addNewLine(printRank7()) +
+            addNewLine("........") +
+            addNewLine("........") +
+            addNewLine("........") +
+            addNewLine("........") +
+            addNewLine(printRank2()) +
+            addNewLine("........");
 
-        builder.append("........");
-        builder.append(NEWLINE);
-        builder.append(printRank7());
-        builder.append(NEWLINE);
-        builder.append("........");
-        builder.append(NEWLINE);
-        builder.append("........");
-        builder.append(NEWLINE);
-        builder.append("........");
-        builder.append(NEWLINE);
-        builder.append("........");
-        builder.append(NEWLINE);
-        builder.append(printRank2());
-        builder.append(NEWLINE);
-        builder.append("........");
-        builder.append(NEWLINE);
-
-        return builder.toString();
+        return board;
     }
 }
