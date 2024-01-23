@@ -13,7 +13,7 @@ public class PieceTest extends TestCase {
         assertEquals(Piece.WHITE, pawn.getColor());
         assertEquals('p', pawn.getRepresentation());
 
-        Piece blackPawn = new Piece(Piece.BLACK, 'P');
+        Piece blackPawn = new Piece(Piece.BLACK, "pawn");
         assertEquals(Piece.BLACK, blackPawn.getColor());
         assertEquals('P', blackPawn.getRepresentation());
 

@@ -30,14 +30,14 @@ class ChessBoard {
         addPiece(rank2, new Piece());
         addPiece(rank2, new Piece());
 
-        addPiece(rank7, new Piece(Piece.BLACK, 'P'));
-        addPiece(rank7, new Piece(Piece.BLACK, 'P'));
-        addPiece(rank7, new Piece(Piece.BLACK, 'P'));
-        addPiece(rank7, new Piece(Piece.BLACK, 'P'));
-        addPiece(rank7, new Piece(Piece.BLACK, 'P'));
-        addPiece(rank7, new Piece(Piece.BLACK, 'P'));
-        addPiece(rank7, new Piece(Piece.BLACK, 'P'));
-        addPiece(rank7, new Piece(Piece.BLACK, 'P'));
+        addPiece(rank7, new Piece(Piece.BLACK, "pawn"));
+        addPiece(rank7, new Piece(Piece.BLACK, "pawn"));
+        addPiece(rank7, new Piece(Piece.BLACK, "pawn"));
+        addPiece(rank7, new Piece(Piece.BLACK, "pawn"));
+        addPiece(rank7, new Piece(Piece.BLACK, "pawn"));
+        addPiece(rank7, new Piece(Piece.BLACK, "pawn"));
+        addPiece(rank7, new Piece(Piece.BLACK, "pawn"));
+        addPiece(rank7, new Piece(Piece.BLACK, "pawn"));
     }
 
     /**

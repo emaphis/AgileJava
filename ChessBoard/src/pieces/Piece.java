@@ -1,7 +1,8 @@
 package pieces;
 
 /**
- * A class to represent pawns
+ * A class to represent pieces
+ * A Piece is a color and a name
  * @author emaph
  */
  public class Piece {
@@ -9,6 +10,7 @@ package pieces;
     public static final String BLACK = "black";
 
     private final String color;
+    private final String name;
     private final char representation;
 
     /**
@@ -16,6 +18,7 @@ package pieces;
      */
     public Piece() {
         this.color = Piece.WHITE;
+        this.name = "pawn";
         this.representation = 'p';
     }
 
@@ -23,14 +26,18 @@ package pieces;
      * Create Pawn of a given color and printable representation
      * @param color
      */
-    public Piece(String color, char representation) {
+    public Piece(String color, String name) {
         this.color = color;
-        this.representation = representation;
+        this.name = "name";
+        if (color.equals(WHITE))
+            this.representation = 'p';
+        else
+            this.representation = 'P';
     }
 
     /**
      * Return Pawns color
-     * @return color
+     * @return color4
      */
     public String getColor() {
         return color;
