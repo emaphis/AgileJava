@@ -41,14 +41,6 @@ class ChessBoard {
         return rank2.size() + rank7.size();
     }
 
-    /**
-     * Add a Pawn to the board in rank2
-     * @param piece
-     */
-   // private void addPiece(ArrayList<Piece> rank, Piece piece) {
-   //     rank.add(piece);
-   // }
-
 
     /**
      * Lookup Piece based on index in a rank.

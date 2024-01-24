@@ -47,6 +47,16 @@ package pieces;
 
         if (name.equals("pawn"))
             representation = 'p';
+        else if (name.equals("rook"))
+            representation = 'r';
+        else if (name.equals("knight"))
+            representation = 'n';
+        else if (name.equals("bishop"))
+            representation = 'b';
+        else if (name.equals("queen"))
+            representation = 'q';
+        else if (name.equals("king"))
+            representation = 'k';
         else
             return '.';
 
