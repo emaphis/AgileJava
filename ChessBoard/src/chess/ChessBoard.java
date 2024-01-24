@@ -32,21 +32,21 @@ class ChessBoard {
     private ArrayList<Piece> intitalizePawnRank(String color) {
         ArrayList<Piece> rank = new ArrayList<Piece>();
         for (int i = 0; i < 8; i++) {
-            rank.add(Piece.create(color, "pawn"));
+            rank.add(Piece.create(color, Piece.PAWN));
         }
         return rank;
     }
 
     private ArrayList<Piece> initializePieceRank(String color) {
         ArrayList<Piece> rank = new ArrayList<Piece>();
-        rank.add(Piece.create(color, "rook"));
-        rank.add(Piece.create(color, "knight"));
-        rank.add(Piece.create(color, "bishop"));
-        rank.add(Piece.create(color, "queen"));
-        rank.add(Piece.create(color, "king"));
-        rank.add(Piece.create(color, "bishop"));
-        rank.add(Piece.create(color, "knight"));
-        rank.add(Piece.create(color, "rook"));
+        rank.add(Piece.create(color, Piece.ROOK));
+        rank.add(Piece.create(color, Piece.KNIGHT));
+        rank.add(Piece.create(color, Piece.BISHOP));
+        rank.add(Piece.create(color, Piece.QUEEN));
+        rank.add(Piece.create(color, Piece.KING));
+        rank.add(Piece.create(color, Piece.BISHOP));
+        rank.add(Piece.create(color, Piece.KNIGHT));
+        rank.add(Piece.create(color, Piece.ROOK));
         return rank;
     }
 

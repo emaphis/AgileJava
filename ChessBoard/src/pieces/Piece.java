@@ -6,8 +6,17 @@ package pieces;
  * @author emaph
  */
  public class Piece {
+    // Piece colors constants
     public static final String WHITE = "white";
     public static final String BLACK = "black";
+
+    // Piece names constants
+    public static final String PAWN = "pawn";
+    public static final String ROOK = "rook";
+    public static final String KNIGHT = "knight";
+    public static final String BISHOP = "bishop";
+    public static final String QUEEN = "queen";
+    public static final String KING = "king";
 
     private static int whiteCount = 0;
     private static int blackCount = 0;
@@ -68,17 +77,17 @@ package pieces;
     public char getRepresentation() {
         char representation;
 
-        if (name.equals("pawn"))
+        if (name.equals(Piece.PAWN))
             representation = 'p';
-        else if (name.equals("rook"))
+        else if (name.equals(Piece.ROOK))
             representation = 'r';
-        else if (name.equals("knight"))
+        else if (name.equals(Piece.KNIGHT))
             representation = 'n';
-        else if (name.equals("bishop"))
+        else if (name.equals(Piece.BISHOP))
             representation = 'b';
-        else if (name.equals("queen"))
+        else if (name.equals(Piece.QUEEN))
             representation = 'q';
-        else if (name.equals("king"))
+        else if (name.equals(Piece.KING))
             representation = 'k';
         else
             return '.';
