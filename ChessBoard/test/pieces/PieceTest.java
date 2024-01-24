@@ -61,4 +61,14 @@ public class PieceTest extends TestCase {
         assertEquals('p', wPawn.getRepresentation());
     }
 
+   public void testIsBlackIsWhite() {
+       Piece white = Piece.create(Piece.WHITE, "pawn");
+       Piece black = Piece.create(Piece.BLACK, "pawn");
+
+       assertTrue(white.isWhite());
+       assertFalse(white.isBlack());
+       assertTrue(black.isBlack());
+       assertFalse(black.isWhite());
+   }
+
 }

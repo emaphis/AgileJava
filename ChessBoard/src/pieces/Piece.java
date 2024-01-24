@@ -88,4 +88,12 @@ package pieces;
 
         return representation;
     }
+
+    public boolean isWhite() {
+        return color.equals(Piece.WHITE);
+    }
+
+    public boolean isBlack() {
+        return color.equals(Piece.BLACK);
+    }
 }
