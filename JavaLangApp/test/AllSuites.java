@@ -12,6 +12,7 @@ public class AllSuites {
         TestSuite suite = new TestSuite();
         suite.addTestSuite(CharsTest.class);
         suite.addTestSuite(StringsTest.class);
+        suite.addTestSuite(ListSortTest.class);
         return suite;
     }
 }
