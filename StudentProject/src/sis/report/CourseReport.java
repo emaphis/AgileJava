@@ -17,6 +17,7 @@ public class CourseReport {
     }
 
     String text() {
+        Collections.sort(sessions);
         StringBuilder builder = new StringBuilder();
         for (CourseSession session : sessions) {
             builder.append(session.getDepartment());

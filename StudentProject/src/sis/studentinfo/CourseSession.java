@@ -9,7 +9,7 @@ import java.util.*;
  * session of a specific university course
  * @author emaph
  */
-public class CourseSession {
+public class CourseSession implements Comparable<CourseSession> {
     private static int count;
 
     private static void incrementCount() {
@@ -88,6 +88,10 @@ public class CourseSession {
 
     public ArrayList<Student> getAllStudents() {
         return students;
+    }
+
+    public int compareTo(CourseSession that) {
+        return this.getDepartment().compareTo(that.getDepartment());
     }
 
 }
