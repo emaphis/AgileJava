@@ -10,8 +10,10 @@ import static util.StringUtil.addNewLine;
  * @author emaph
  */
 class ChessBoard {
-    public ArrayList<Piece> rank2 = new ArrayList<Piece>(8);
-    public ArrayList<Piece> rank7 = new ArrayList<Piece>(8);
+    public ArrayList<Piece> rank1;
+    public ArrayList<Piece> rank2;
+    public ArrayList<Piece> rank7;
+    public ArrayList<Piece> rank8;
 
     public ChessBoard() {
         //initalize();
@@ -21,9 +23,10 @@ class ChessBoard {
      * Initialize the Board with Piece by Rank.
      */
     public final void initalize() {
+        rank1 = initializePieceRank(Piece.WHITE);
         rank2 = intitalizePawnRank(Piece.WHITE);
         rank7 = intitalizePawnRank(Piece.BLACK);
-
+        rank8 = initializePieceRank(Piece.BLACK);
     }
 
     private ArrayList<Piece> intitalizePawnRank(String color) {
@@ -33,12 +36,26 @@ class ChessBoard {
         }
         return rank;
     }
+
+    private ArrayList<Piece> initializePieceRank(String color) {
+        ArrayList<Piece> rank = new ArrayList<Piece>();
+        rank.add(Piece.create(color, "rook"));
+        rank.add(Piece.create(color, "knight"));
+        rank.add(Piece.create(color, "bishop"));
+        rank.add(Piece.create(color, "queen"));
+        rank.add(Piece.create(color, "king"));
+        rank.add(Piece.create(color, "bishop"));
+        rank.add(Piece.create(color, "knight"));
+        rank.add(Piece.create(color, "rook"));
+        return rank;
+    }
+
     /**
      * Return current number of pieces board holds.
      * @return number of pieces
      */
     int getNumberPieces() {
-        return rank2.size() + rank7.size();
+        return rank1.size() + rank2.size() + rank7.size() + rank8.size();
     }
 
 
@@ -68,14 +85,14 @@ class ChessBoard {
 
     public String print() {
         String board =
-            addNewLine("........") +
+            addNewLine(printRank(rank8)) +
             addNewLine(printRank(rank7)) +
             addNewLine("........") +
             addNewLine("........") +
             addNewLine("........") +
             addNewLine("........") +
             addNewLine(printRank(rank2)) +
-            addNewLine("........");
+            addNewLine(printRank(rank1));
 
         return board;
     }

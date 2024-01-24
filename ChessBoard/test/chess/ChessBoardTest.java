@@ -14,24 +14,28 @@ public class ChessBoardTest extends TestCase {
     @Override
     protected void setUp() throws Exception {
         board = new ChessBoard();
+        board.initalize();
     }
 
     public void testCreate() {
-        board.initalize();
-        assertEquals(16, board.getNumberPieces());
+        assertEquals(32, board.getNumberPieces());
         assertEquals("pppppppp", board.printRank(board.rank2));
         assertEquals("PPPPPPPP", board.printRank(board.rank7));
+        assertEquals("rnbqkbnr", board.printRank(board.rank1));
+        assertEquals("RNBQKBNR", board.printRank(board.rank8));
+    }
 
+    public void testBoardRepresentation() {
         String blankRank = addNewLine("........");
         String boardRep =
-                addNewLine("........") +
+                addNewLine("RNBQKBNR") +
                 addNewLine("PPPPPPPP") +
                 blankRank + blankRank +
                 blankRank + blankRank +
                 addNewLine("pppppppp") +
-                addNewLine("........");
+                addNewLine("rnbqkbnr");
 
-        //System.out.println(board.print());
+        System.out.println(board.print());
         assertEquals(boardRep, board.print());
     }
 
