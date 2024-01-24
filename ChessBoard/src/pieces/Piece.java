@@ -28,7 +28,7 @@ package pieces;
      */
     private Piece(String color, String name) {
         this.color = color;
-        this.name = "name";
+        this.name = name;
     }
 
     /**
@@ -45,10 +45,13 @@ package pieces;
     public char getRepresentation() {
         char representation;
 
-        if (color.equals(WHITE))
+        if (name.equals("pawn"))
             representation = 'p';
         else
-            representation = 'P';
+            return '.';
+
+        if (color.equals(BLACK))
+            representation = Character.toUpperCase(representation);
 
         return representation;
     }

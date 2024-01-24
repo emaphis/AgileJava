@@ -10,8 +10,8 @@ import static util.StringUtil.addNewLine;
  * @author emaph
  */
 class ChessBoard {
-    private ArrayList<Piece> rank2 = new ArrayList<Piece>(8);
-    private ArrayList<Piece> rank7 = new ArrayList<Piece>(8);
+    public ArrayList<Piece> rank2 = new ArrayList<Piece>(8);
+    public ArrayList<Piece> rank7 = new ArrayList<Piece>(8);
 
     public ChessBoard() {
         //initalize();
@@ -45,9 +45,9 @@ class ChessBoard {
      * Add a Pawn to the board in rank2
      * @param piece
      */
-    private void addPiece(ArrayList<Piece> rank, Piece piece) {
-        rank.add(piece);
-    }
+   // private void addPiece(ArrayList<Piece> rank, Piece piece) {
+   //     rank.add(piece);
+   // }
 
 
     /**
@@ -65,35 +65,24 @@ class ChessBoard {
      * @param rank
      * @return rank in printable form
      */
-    private String printRank(ArrayList<Piece> rank) {
+    public String printRank(ArrayList<Piece> rank) {
         StringBuilder build = new StringBuilder();
         for (int i = 0; i < rank.size(); i++) {
             Piece piece = rank.get(i);
-            if (piece != null)
-                build.append(piece.getRepresentation());
-            else
-                build.append('.');
+            build.append(piece.getRepresentation());
         }
         return build.toString();
-    }
-
-    public String printRank2() {
-        return printRank(rank2);
-    }
-
-    public String printRank7() {
-        return printRank(rank7);
     }
 
     public String print() {
         String board =
             addNewLine("........") +
-            addNewLine(printRank7()) +
+            addNewLine(printRank(rank7)) +
             addNewLine("........") +
             addNewLine("........") +
             addNewLine("........") +
             addNewLine("........") +
-            addNewLine(printRank2()) +
+            addNewLine(printRank(rank2)) +
             addNewLine("........");
 
         return board;
