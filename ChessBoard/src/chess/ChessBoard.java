@@ -96,4 +96,12 @@ class ChessBoard {
 
         return board;
     }
+
+    public int getNumberWhitePieces() {
+        return Piece.getWhiteCount();
+    }
+
+    public int getNumberBlackPieces() {
+        return Piece.getBlackCount();
+    }
 }

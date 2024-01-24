@@ -9,6 +9,9 @@ package pieces;
     public static final String WHITE = "white";
     public static final String BLACK = "black";
 
+    private static int whiteCount = 0;
+    private static int blackCount = 0;
+
     private final String color;
     private final String name;
 
@@ -19,12 +22,32 @@ package pieces;
      * @return new Piece
      */
     public static Piece create(String color, String name) {
+        if (color.equals(Piece.WHITE))
+            whiteCount++;
+        else
+            blackCount++;
+
         return new Piece(color, name);
     }
 
     /**
+     * Get White Piece count
+     * @return white piece count
+     */
+    public static int getWhiteCount() {
+        return whiteCount;
+    }
+
+    /**
+     * Get Black Piece count
+     * @return black piece count
+     */
+    public static int getBlackCount() {
+        return blackCount;
+    }
+    /**
      * Create Pawn of a given color and printable representation
-     * @param color
+     * @param cdolor
      */
     private Piece(String color, String name) {
         this.color = color;

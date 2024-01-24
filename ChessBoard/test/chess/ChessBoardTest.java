@@ -19,6 +19,9 @@ public class ChessBoardTest extends TestCase {
 
     public void testCreate() {
         assertEquals(32, board.getNumberPieces());
+        assertEquals(16, board.getNumberWhitePieces());
+        assertEquals(16, board.getNumberBlackPieces());
+
         assertEquals("pppppppp", board.printRank(board.rank2));
         assertEquals("PPPPPPPP", board.printRank(board.rank7));
         assertEquals("rnbqkbnr", board.printRank(board.rank1));
