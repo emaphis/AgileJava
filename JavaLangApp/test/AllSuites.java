@@ -13,6 +13,7 @@ public class AllSuites {
         suite.addTestSuite(CharsTest.class);
         suite.addTestSuite(StringsTest.class);
         suite.addTestSuite(ListSortTest.class);
+        suite.addTestSuite(ComparibleTest.class);
         return suite;
     }
 }
