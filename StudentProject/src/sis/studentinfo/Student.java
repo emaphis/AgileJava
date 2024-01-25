@@ -16,7 +16,7 @@ public class Student {
     private int credits;
     private String state;
     private GradingStrategy gradingStretegy;
-    private final ArrayList<Grade> grades = new ArrayList<Grade>();
+    private final List<Grade> grades = new ArrayList<Grade>();
 
     public Student(String name) {
         this.name = name;

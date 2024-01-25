@@ -1,6 +1,5 @@
 package sis.studentinfo;
 
-import java.util.ArrayList;
 import java.util.*;
 
 
@@ -38,7 +37,7 @@ public class CourseSession implements Comparable<CourseSession> {
 
     private final String department;
     private final String number;
-    private final ArrayList<Student> students;
+    private final List<Student> students;
     private final Date startDate;
     private int numberOfCredits;
 
@@ -86,7 +85,7 @@ public class CourseSession implements Comparable<CourseSession> {
         return calendar.getTime();
     }
 
-    public ArrayList<Student> getAllStudents() {
+    public List<Student> getAllStudents() {
         return students;
     }
 

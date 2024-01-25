@@ -10,7 +10,7 @@ import java.util.*;
  * @author emaph
  */
 public class CourseReport {
-    private ArrayList<CourseSession> sessions = new ArrayList<CourseSession>();
+    private List<CourseSession> sessions = new ArrayList<CourseSession>();
 
     void add(CourseSession session) {
         sessions.add(session);
