@@ -32,7 +32,7 @@ class ChessBoard {
     private ArrayList<Piece> intitalizeWhitePawnRank() {
         ArrayList<Piece> rank = new ArrayList<Piece>();
         for (int i = 0; i < 8; i++) {
-            rank.add(Piece.createWhite(Piece.PAWN));
+            rank.add(Piece.createWhitePawn());
         }
         return rank;
     }
@@ -40,34 +40,34 @@ class ChessBoard {
     private ArrayList<Piece> intitalizeBlackPawnRank() {
         ArrayList<Piece> rank = new ArrayList<Piece>();
         for (int i = 0; i < 8; i++) {
-            rank.add(Piece.createBlack(Piece.PAWN));
+            rank.add(Piece.createBlackPawn());
         }
         return rank;
     }
 
     private ArrayList<Piece> initializeWhitePieceRank() {
         ArrayList<Piece> rank = new ArrayList<Piece>();
-        rank.add(Piece.createWhite(Piece.ROOK));
-        rank.add(Piece.createWhite(Piece.KNIGHT));
-        rank.add(Piece.createWhite(Piece.BISHOP));
-        rank.add(Piece.createWhite(Piece.QUEEN));
-        rank.add(Piece.createWhite(Piece.KING));
-        rank.add(Piece.createWhite(Piece.BISHOP));
-        rank.add(Piece.createWhite(Piece.KNIGHT));
-        rank.add(Piece.createWhite(Piece.ROOK));
+        rank.add(Piece.createWhiteRook());
+        rank.add(Piece.createWhiteKnight());
+        rank.add(Piece.createWhiteBishop());
+        rank.add(Piece.createWhiteQueen());
+        rank.add(Piece.createWhiteKing());
+        rank.add(Piece.createWhiteBishop());
+        rank.add(Piece.createWhiteKnight());
+        rank.add(Piece.createWhiteRook());
         return rank;
     }
 
     private ArrayList<Piece> initializeBlackPieceRank() {
         ArrayList<Piece> rank = new ArrayList<Piece>();
-        rank.add(Piece.createBlack(Piece.ROOK));
-        rank.add(Piece.createBlack(Piece.KNIGHT));
-        rank.add(Piece.createBlack(Piece.BISHOP));
-        rank.add(Piece.createBlack(Piece.QUEEN));
-        rank.add(Piece.createBlack(Piece.KING));
-        rank.add(Piece.createBlack(Piece.BISHOP));
-        rank.add(Piece.createBlack(Piece.KNIGHT));
-        rank.add(Piece.createBlack(Piece.ROOK));
+        rank.add(Piece.createBlackRook());
+        rank.add(Piece.createBlackKnight());
+        rank.add(Piece.createBlackBishop());
+        rank.add(Piece.createBlackQueen());
+        rank.add(Piece.createBlackKing());
+        rank.add(Piece.createBlackBishop());
+        rank.add(Piece.createBlackKnight());
+        rank.add(Piece.createBlackRook());
         return rank;
     }
 

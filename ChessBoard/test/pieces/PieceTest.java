@@ -9,50 +9,50 @@ import junit.framework.TestCase;
 public class PieceTest extends TestCase {
 
    public void testCreate() {
-        Piece wPawn = Piece.createWhite(Piece.PAWN);
+        Piece wPawn = Piece.createWhitePawn();
         assertTrue(wPawn.isWhite());
         assertEquals('p', wPawn.getRepresentation());
 
-        Piece bPawn = Piece.createBlack(Piece.PAWN);
+        Piece bPawn = Piece.createBlackPawn();
         assertTrue(bPawn.isBlack());
         assertEquals('P', bPawn.getRepresentation());
 
-        Piece wRook = Piece.createWhite(Piece.ROOK);
+        Piece wRook = Piece.createWhiteRook();
         assertEquals('r', wRook.getRepresentation());
 
-        Piece bRook = Piece.createBlack( Piece.ROOK);
+        Piece bRook = Piece.createBlackRook();
         assertEquals('R', bRook.getRepresentation());
 
-        Piece wKnight = Piece.createWhite(Piece.KNIGHT);
+        Piece wKnight = Piece.createWhiteKnight();
         assertEquals('n', wKnight.getRepresentation());
 
-        Piece bKnight = Piece.createBlack(Piece.KNIGHT);
+        Piece bKnight = Piece.createBlackKnight();
         assertEquals('N', bKnight.getRepresentation());
 
-        Piece wBishop = Piece.createWhite(Piece.BISHOP);
+        Piece wBishop = Piece.createWhiteBishop();
         assertEquals('b', wBishop.getRepresentation());
 
-        Piece bBishop = Piece.createBlack(Piece.BISHOP);
+        Piece bBishop = Piece.createBlackBishop();
         assertEquals('B', bBishop.getRepresentation());
 
-        Piece wQueen = Piece.createWhite(Piece.QUEEN);
+        Piece wQueen = Piece.createWhiteQueen();
         assertEquals('q', wQueen.getRepresentation());
 
-        Piece bQueen = Piece.createBlack(Piece.QUEEN);
+        Piece bQueen = Piece.createBlackQueen();
         assertEquals('Q', bQueen.getRepresentation());
 
-        Piece wKing = Piece.createWhite(Piece.KING);
+        Piece wKing = Piece.createWhiteKing();
         assertEquals('k', wKing.getRepresentation());
 
-        Piece bKing = Piece.createBlack(Piece.KING);
+        Piece bKing = Piece.createBlackKing();
         assertEquals('K', bKing.getRepresentation());
 
         assertEquals('p', wPawn.getRepresentation());
     }
 
    public void testIsBlackIsWhite() {
-       Piece white = Piece.createWhite(Piece.PAWN);
-       Piece black = Piece.createBlack(Piece.PAWN);
+       Piece white = Piece.createWhitePawn();
+       Piece black = Piece.createBlackPawn();
 
        assertTrue(white.isWhite());
        assertFalse(white.isBlack());
