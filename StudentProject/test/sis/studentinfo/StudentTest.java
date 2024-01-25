@@ -43,7 +43,7 @@ public class StudentTest extends TestCase {
     public void testInState() {
         Student student = new Student("a");
         assertFalse(student.isInState());
-        student.setState(student.IN_STATE);
+        student.setState(Student.IN_STATE);
         assertTrue(student.isInState());
         student.setState("MO");
         assertFalse(student.isInState());
@@ -82,7 +82,7 @@ public class StudentTest extends TestCase {
 
     private Student createHonorsStudent() {
         Student student = new Student("a");
-        student.setHonors();
+        student.setGradingStrategy(new HonorsGradingStrategy());
         return student;
     }
 }

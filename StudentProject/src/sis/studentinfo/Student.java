@@ -7,7 +7,7 @@ import java.util.*;
  * @author emaph
  */
 public class Student {
-    enum Grade { A, B, C, D, F };
+    public enum Grade { A, B, C, D, F };
 
     public static final int CREDIT_REQUITED_FOR_FULL_TIME = 12;
     public static final String IN_STATE = "CO";
@@ -15,14 +15,14 @@ public class Student {
     private final String name;
     private int credits;
     private String state;
-    private boolean isHonors;
+    private GradingStrategy gradingStretegy;
     private final ArrayList<Grade> grades = new ArrayList<Grade>();
 
     public Student(String name) {
         this.name = name;
         this.credits = 0;
         this.state = "";
-        this.isHonors = false;
+        this.gradingStretegy = new RegularGradingStrategy();
     }
 
     public String getName() {
@@ -49,12 +49,8 @@ public class Student {
         this.state = state;
     }
 
-    boolean isHonors() {
-        return isHonors;
-    }
-
-    void setHonors() {
-        this.isHonors = true;
+    void setGradingStrategy(GradingStrategy gradingStrategy) {
+        this.gradingStretegy = gradingStrategy;
     }
 
     void addGrade(Grade grade) {
@@ -71,31 +67,10 @@ public class Student {
 
         double total = 0.0;
         for (Grade grade : grades) {
-            total += gradePointsFor(grade);
+            total += gradingStretegy.getGradePointsFor(grade);
         }
 
         return total / grades.size();
-    }
-
-    /**
-     * Return points given a letter grade
-     * @param grade as a String
-     * @return grade as points
-     */
-    public double gradePointsFor(Grade grade) {
-        double points = basicGradePointsFor(grade);
-        if (isHonors)
-            if (points > 0.0)
-                points += 1.0;
-        return points;
-    }
-
-    private double basicGradePointsFor(Grade grade) {
-        if (grade == Grade.A) return 4.0;
-        if (grade == Grade.B) return 3.0;
-        if (grade == Grade.C) return 2.0;
-        if (grade == Grade.D) return 1.0;
-        return 0;
     }
 
 }
