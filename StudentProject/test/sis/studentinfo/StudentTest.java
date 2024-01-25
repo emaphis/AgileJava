@@ -9,6 +9,7 @@ import junit.framework.TestCase;
 public class StudentTest extends TestCase {
     final String firstStudentName = "Jane Doe";
     final String secondStudentName = "Joe Blow";
+    private static final double GRADE_TOLERANCE     = 0.05;
 
     public void testCreate() {
         Student student = new Student(firstStudentName);
@@ -47,4 +48,22 @@ public class StudentTest extends TestCase {
         student.setState("MO");
         assertFalse(student.isInState());
     }
+
+    public void testCalulateGPA() {
+        Student student = new Student("a");
+        assertEquals(0.0, student.getGPA(), GRADE_TOLERANCE);
+        student.addGrade("A");
+        assertEquals(4.0, student.getGPA(), GRADE_TOLERANCE);
+        student.addGrade("B");
+        assertEquals(3.5, student.getGPA(), GRADE_TOLERANCE);
+        student.addGrade("C");
+        assertEquals(3.0, student.getGPA(), GRADE_TOLERANCE);
+        student.addGrade("D");
+        assertEquals(2.5, student.getGPA(), GRADE_TOLERANCE);
+        student.addGrade("F");
+        assertEquals(2.0, student.getGPA(), GRADE_TOLERANCE);
+
+
+    }
+
 }

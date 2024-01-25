@@ -1,5 +1,7 @@
 package sis.studentinfo;
 
+import java.util.*;
+
 /**
  * Represents a Student
  * @author emaph
@@ -11,6 +13,7 @@ public class Student {
     private final String name;
     private int credits;
     private String state;
+    private ArrayList<String> grades = new ArrayList<String>();
 
     public Student(String name) {
         this.name = name;
@@ -41,4 +44,28 @@ public class Student {
     void setState(String state) {
         this.state = state;
     }
+
+    void addGrade(String grade) {
+        this.grades.add(grade);
+    }
+
+    double getGPA() {
+        if (grades.isEmpty())
+            return 0.0;
+
+        double total = 0.0;
+        for (String grade : grades) {
+            if (grade.equals("A"))
+                total += 4.0;
+            else if (grade.equals("B"))
+                total += 3.0;
+            else if (grade.equals("C"))
+                total += 2.0;
+            else if (grade.equals("D"))
+                total += 1.0;
+        }
+
+        return total / grades.size();
+    }
+
 }
