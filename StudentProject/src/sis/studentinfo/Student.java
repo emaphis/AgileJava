@@ -49,23 +49,33 @@ public class Student {
         this.grades.add(grade);
     }
 
+    /**
+     * Calculate the GPA for this student based on stored grades
+     * @return the GPAS
+     */
     double getGPA() {
         if (grades.isEmpty())
             return 0.0;
 
         double total = 0.0;
         for (String grade : grades) {
-            if (grade.equals("A"))
-                total += 4.0;
-            else if (grade.equals("B"))
-                total += 3.0;
-            else if (grade.equals("C"))
-                total += 2.0;
-            else if (grade.equals("D"))
-                total += 1.0;
+            total += gradePointsFor(grade);
         }
 
         return total / grades.size();
+    }
+
+    /**
+     * Return points given a letter grade
+     * @param grade as a String
+     * @return grade as points
+     */
+    private double gradePointsFor(String grade) {
+        if (grade.equals("A")) return 4.0;
+        if (grade.equals("B")) return 3.0;
+        if (grade.equals("C")) return 2.0;
+        if (grade.equals("D")) return 1.0;
+        return 0;
     }
 
 }

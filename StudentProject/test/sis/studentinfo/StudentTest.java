@@ -51,19 +51,23 @@ public class StudentTest extends TestCase {
 
     public void testCalulateGPA() {
         Student student = new Student("a");
-        assertEquals(0.0, student.getGPA(), GRADE_TOLERANCE);
+        assertGPA(student, 0.0);
         student.addGrade("A");
-        assertEquals(4.0, student.getGPA(), GRADE_TOLERANCE);
+        assertGPA(student, 4.0);
         student.addGrade("B");
-        assertEquals(3.5, student.getGPA(), GRADE_TOLERANCE);
+        assertGPA(student, 3.5);
         student.addGrade("C");
-        assertEquals(3.0, student.getGPA(), GRADE_TOLERANCE);
+        assertGPA(student,3.0);
         student.addGrade("D");
-        assertEquals(2.5, student.getGPA(), GRADE_TOLERANCE);
+        assertGPA(student, 2.5);
         student.addGrade("F");
-        assertEquals(2.0, student.getGPA(), GRADE_TOLERANCE);
+        assertGPA(student, 2.0);
 
 
+    }
+
+    void assertGPA(Student student, double expectedGPA) {
+        assertEquals(expectedGPA, student.getGPA(), GRADE_TOLERANCE);
     }
 
 }
