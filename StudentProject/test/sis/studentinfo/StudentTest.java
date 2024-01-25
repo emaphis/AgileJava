@@ -52,15 +52,15 @@ public class StudentTest extends TestCase {
     public void testCalulateGPA() {
         Student student = new Student("a");
         assertGPA(student, 0.0);
-        student.addGrade("A");
+        student.addGrade(Student.Grade.A);
         assertGPA(student, 4.0);
-        student.addGrade("B");
+        student.addGrade(Student.Grade.B);
         assertGPA(student, 3.5);
-        student.addGrade("C");
+        student.addGrade(Student.Grade.C);
         assertGPA(student,3.0);
-        student.addGrade("D");
+        student.addGrade(Student.Grade.D);
         assertGPA(student, 2.5);
-        student.addGrade("F");
+        student.addGrade(Student.Grade.F);
         assertGPA(student, 2.0);
 
 

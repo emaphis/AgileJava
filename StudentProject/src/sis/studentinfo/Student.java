@@ -7,13 +7,15 @@ import java.util.*;
  * @author emaph
  */
 public class Student {
+    enum Grade { A, B, C, D, F };
+
     public static final int CREDIT_REQUITED_FOR_FULL_TIME = 12;
     public static final String IN_STATE = "CO";
 
     private final String name;
     private int credits;
     private String state;
-    private ArrayList<String> grades = new ArrayList<String>();
+    private final ArrayList<Grade> grades = new ArrayList<Grade>();
 
     public Student(String name) {
         this.name = name;
@@ -45,7 +47,7 @@ public class Student {
         this.state = state;
     }
 
-    void addGrade(String grade) {
+    void addGrade(Grade grade) {
         this.grades.add(grade);
     }
 
@@ -58,7 +60,7 @@ public class Student {
             return 0.0;
 
         double total = 0.0;
-        for (String grade : grades) {
+        for (Grade grade : grades) {
             total += gradePointsFor(grade);
         }
 
@@ -70,11 +72,11 @@ public class Student {
      * @param grade as a String
      * @return grade as points
      */
-    private double gradePointsFor(String grade) {
-        if (grade.equals("A")) return 4.0;
-        if (grade.equals("B")) return 3.0;
-        if (grade.equals("C")) return 2.0;
-        if (grade.equals("D")) return 1.0;
+    private double gradePointsFor(Grade grade) {
+        if (grade == Grade.A) return 4.0;
+        if (grade == Grade.B) return 3.0;
+        if (grade == Grade.C) return 2.0;
+        if (grade == Grade.D) return 1.0;
         return 0;
     }
 
