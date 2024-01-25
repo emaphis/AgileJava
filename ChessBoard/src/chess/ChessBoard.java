@@ -23,30 +23,51 @@ class ChessBoard {
      * Initialize the Board with Piece by Rank.
      */
     public final void initalize() {
-        rank1 = initializePieceRank(Piece.WHITE);
-        rank2 = intitalizePawnRank(Piece.WHITE);
-        rank7 = intitalizePawnRank(Piece.BLACK);
-        rank8 = initializePieceRank(Piece.BLACK);
+        rank1 = initializeWhitePieceRank();
+        rank2 = intitalizeWhitePawnRank();
+        rank7 = intitalizeBlackPawnRank();
+        rank8 = initializeBlackPieceRank();
     }
 
-    private ArrayList<Piece> intitalizePawnRank(String color) {
+    private ArrayList<Piece> intitalizeWhitePawnRank() {
         ArrayList<Piece> rank = new ArrayList<Piece>();
         for (int i = 0; i < 8; i++) {
-            rank.add(Piece.create(color, Piece.PAWN));
+            rank.add(Piece.createWhite(Piece.PAWN));
         }
         return rank;
     }
 
-    private ArrayList<Piece> initializePieceRank(String color) {
+    private ArrayList<Piece> intitalizeBlackPawnRank() {
         ArrayList<Piece> rank = new ArrayList<Piece>();
-        rank.add(Piece.create(color, Piece.ROOK));
-        rank.add(Piece.create(color, Piece.KNIGHT));
-        rank.add(Piece.create(color, Piece.BISHOP));
-        rank.add(Piece.create(color, Piece.QUEEN));
-        rank.add(Piece.create(color, Piece.KING));
-        rank.add(Piece.create(color, Piece.BISHOP));
-        rank.add(Piece.create(color, Piece.KNIGHT));
-        rank.add(Piece.create(color, Piece.ROOK));
+        for (int i = 0; i < 8; i++) {
+            rank.add(Piece.createBlack(Piece.PAWN));
+        }
+        return rank;
+    }
+
+    private ArrayList<Piece> initializeWhitePieceRank() {
+        ArrayList<Piece> rank = new ArrayList<Piece>();
+        rank.add(Piece.createWhite(Piece.ROOK));
+        rank.add(Piece.createWhite(Piece.KNIGHT));
+        rank.add(Piece.createWhite(Piece.BISHOP));
+        rank.add(Piece.createWhite(Piece.QUEEN));
+        rank.add(Piece.createWhite(Piece.KING));
+        rank.add(Piece.createWhite(Piece.BISHOP));
+        rank.add(Piece.createWhite(Piece.KNIGHT));
+        rank.add(Piece.createWhite(Piece.ROOK));
+        return rank;
+    }
+
+    private ArrayList<Piece> initializeBlackPieceRank() {
+        ArrayList<Piece> rank = new ArrayList<Piece>();
+        rank.add(Piece.createBlack(Piece.ROOK));
+        rank.add(Piece.createBlack(Piece.KNIGHT));
+        rank.add(Piece.createBlack(Piece.BISHOP));
+        rank.add(Piece.createBlack(Piece.QUEEN));
+        rank.add(Piece.createBlack(Piece.KING));
+        rank.add(Piece.createBlack(Piece.BISHOP));
+        rank.add(Piece.createBlack(Piece.KNIGHT));
+        rank.add(Piece.createBlack(Piece.ROOK));
         return rank;
     }
 

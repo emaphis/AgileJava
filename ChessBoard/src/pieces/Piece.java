@@ -7,8 +7,7 @@ package pieces;
  */
  public class Piece {
     // Piece colors constants
-    public static final String WHITE = "white";
-    public static final String BLACK = "black";
+    public static enum Colors { WHITE, BLACK };
 
     // Piece names constants
     public static final String PAWN = "pawn";
@@ -21,7 +20,7 @@ package pieces;
     private static int whiteCount = 0;
     private static int blackCount = 0;
 
-    private final String color;
+    private final Colors color;
     private final String name;
 
     /**
@@ -30,13 +29,21 @@ package pieces;
      * @param name
      * @return new Piece
      */
-    public static Piece create(String color, String name) {
-        if (color.equals(Piece.WHITE))
-            whiteCount++;
-        else
-            blackCount++;
+    public static Piece createWhite(String name) {
+        whiteCount++;
+        return new Piece(Colors.WHITE, name);
+    }
 
-        return new Piece(color, name);
+
+    /**
+     * Static Piece factory
+     * @param color
+     * @param name
+     * @return new Piece
+     */
+    public static Piece createBlack(String name) {
+        blackCount++;
+        return new Piece(Colors.BLACK, name);
     }
 
     /**
@@ -58,7 +65,7 @@ package pieces;
      * Create Pawn of a given color and printable representation
      * @param cdolor
      */
-    private Piece(String color, String name) {
+    private Piece(Colors color, String name) {
         this.color = color;
         this.name = name;
     }
@@ -67,7 +74,7 @@ package pieces;
      * Return Pawns color
      * @return color4
      */
-    public String getColor() {
+    public Colors getColor() {
         return color;
     }
 
@@ -92,17 +99,17 @@ package pieces;
         else
             return '.';
 
-        if (color.equals(BLACK))
+        if (color == Colors.BLACK)
             representation = Character.toUpperCase(representation);
 
         return representation;
     }
 
     public boolean isWhite() {
-        return color.equals(Piece.WHITE);
+        return color == Colors.WHITE;
     }
 
     public boolean isBlack() {
-        return color.equals(Piece.BLACK);
+        return !isWhite();
     }
 }
