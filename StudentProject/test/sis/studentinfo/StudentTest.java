@@ -62,12 +62,27 @@ public class StudentTest extends TestCase {
         assertGPA(student, 2.5);
         student.addGrade(Student.Grade.F);
         assertGPA(student, 2.0);
-
-
     }
 
     void assertGPA(Student student, double expectedGPA) {
         assertEquals(expectedGPA, student.getGPA(), GRADE_TOLERANCE);
     }
 
+    public void testCalculateHonorsStudentGPA() {
+        assertGPA(createHonorsStudent(), 0.0);
+        assertGPA(createHonorsStudent(Student.Grade.A), 5.0);
+
+    }
+
+    private Student createHonorsStudent(Student.Grade grade) {
+        Student student = createHonorsStudent();
+        student.addGrade(grade);
+        return student;
+    }
+
+    private Student createHonorsStudent() {
+        Student student = new Student("a");
+        student.setHonors();
+        return student;
+    }
 }

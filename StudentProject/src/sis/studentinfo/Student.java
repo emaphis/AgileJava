@@ -15,12 +15,14 @@ public class Student {
     private final String name;
     private int credits;
     private String state;
+    private boolean isHonors;
     private final ArrayList<Grade> grades = new ArrayList<Grade>();
 
     public Student(String name) {
         this.name = name;
         this.credits = 0;
         this.state = "";
+        this.isHonors = false;
     }
 
     public String getName() {
@@ -45,6 +47,14 @@ public class Student {
 
     void setState(String state) {
         this.state = state;
+    }
+
+    boolean isHonors() {
+        return isHonors;
+    }
+
+    void setHonors() {
+        this.isHonors = true;
     }
 
     void addGrade(Grade grade) {
@@ -72,7 +82,15 @@ public class Student {
      * @param grade as a String
      * @return grade as points
      */
-    private double gradePointsFor(Grade grade) {
+    public double gradePointsFor(Grade grade) {
+        double points = basicGradePointsFor(grade);
+        if (isHonors)
+            if (points > 0.0)
+                points += 1.0;
+        return points;
+    }
+
+    private double basicGradePointsFor(Grade grade) {
         if (grade == Grade.A) return 4.0;
         if (grade == Grade.B) return 3.0;
         if (grade == Grade.C) return 2.0;
