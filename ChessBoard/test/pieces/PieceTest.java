@@ -10,54 +10,42 @@ public class PieceTest extends TestCase {
 
    public void testCreate() {
         Piece wPawn = Piece.createWhitePawn();
-        assertTrue(wPawn.isWhite());
-        assertEquals('p', wPawn.getRepresentation());
-
         Piece bPawn = Piece.createBlackPawn();
-        assertTrue(bPawn.isBlack());
-        assertEquals('P', bPawn.getRepresentation());
+        verifyCreation(wPawn, bPawn, Piece.Type.PAWN, 'p');
 
         Piece wRook = Piece.createWhiteRook();
-        assertEquals('r', wRook.getRepresentation());
-
         Piece bRook = Piece.createBlackRook();
-        assertEquals('R', bRook.getRepresentation());
+        verifyCreation(wRook, bRook, Piece.Type.ROOK, 'r');
 
         Piece wKnight = Piece.createWhiteKnight();
-        assertEquals('n', wKnight.getRepresentation());
-
         Piece bKnight = Piece.createBlackKnight();
-        assertEquals('N', bKnight.getRepresentation());
+        verifyCreation(wKnight, bKnight, Piece.Type.KNIGHT, 'n');
 
         Piece wBishop = Piece.createWhiteBishop();
-        assertEquals('b', wBishop.getRepresentation());
-
         Piece bBishop = Piece.createBlackBishop();
-        assertEquals('B', bBishop.getRepresentation());
+        verifyCreation(wBishop, bBishop, Piece.Type.BISHOP, 'b');
 
         Piece wQueen = Piece.createWhiteQueen();
-        assertEquals('q', wQueen.getRepresentation());
-
         Piece bQueen = Piece.createBlackQueen();
-        assertEquals('Q', bQueen.getRepresentation());
+        verifyCreation(wQueen, bQueen, Piece.Type.QUEEN, 'q');
 
         Piece wKing = Piece.createWhiteKing();
-        assertEquals('k', wKing.getRepresentation());
-
         Piece bKing = Piece.createBlackKing();
-        assertEquals('K', bKing.getRepresentation());
+        verifyCreation(wKing, bKing, Piece.Type.KING, 'k');
 
-        assertEquals('p', wPawn.getRepresentation());
+
     }
 
-   public void testIsBlackIsWhite() {
-       Piece white = Piece.createWhitePawn();
-       Piece black = Piece.createBlackPawn();
+   private void verifyCreation(Piece whitePiece, Piece blackPiece,
+           Piece.Type type, char representation) {
+       assertTrue(whitePiece.isWhite());
+       assertEquals(type, whitePiece.getType());
+       assertEquals(representation, whitePiece.getRepresentation());
 
-       assertTrue(white.isWhite());
-       assertFalse(white.isBlack());
-       assertTrue(black.isBlack());
-       assertFalse(black.isWhite());
+       assertTrue(blackPiece.isBlack());
+       assertEquals(type, blackPiece.getType());
+       char blackRepresentation = Character.toUpperCase(representation);
+       assertEquals(blackRepresentation, blackPiece.getRepresentation());
    }
 
 }
