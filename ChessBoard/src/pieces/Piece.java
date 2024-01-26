@@ -1,16 +1,21 @@
 package pieces;
 
 /**
- * A class to represent pieces
- * A Piece is a color and a name
+ * A class to represent pieces A Piece is a color and a name
+ *
  * @author emaph
  */
- public class Piece {
+public class Piece {
+
     // Piece colors constants
-    private static enum Colors { WHITE, BLACK, BLNK };
+    private static enum Colors {
+        WHITE, BLACK, BLNK
+    };
 
     // Piece names constants
-    public static enum Type { PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING, NO_PIECE };
+    public static enum Type {
+        PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING, NO_PIECE
+    };
 
     // Piece reresentation constats (eventuall fold into Type enum)
     public static char PAWN_REPRESENTATION = 'p';
@@ -21,77 +26,75 @@ package pieces;
     public static char KING_REPRESENTATION = 'k';
     public static char BLANK_REPRESENTATION = '.';
 
-
     private static int whiteCount = 0;
     private static int blackCount = 0;
 
     private final Colors color;
     private final Type type;
 
+    private static Piece createPiece(Colors color, Type type) {
+        if (color == Colors.WHITE)
+            whiteCount++;
+        else if (color == Colors.BLACK)
+            blackCount++;
+        return new Piece(color, type);
+    }
+
     public static Piece createWhitePawn() {
-        whiteCount++;
-        return new Piece(Colors.WHITE, Type.PAWN);
+        return createPiece(Colors.WHITE, Type.PAWN);
     }
 
     public static Piece createWhiteRook() {
-        whiteCount++;
-        return new Piece(Colors.WHITE, Type.ROOK);
+        return createPiece(Colors.WHITE, Type.ROOK);
     }
 
     public static Piece createWhiteKnight() {
-        whiteCount++;
-        return new Piece(Colors.WHITE, Type.KNIGHT);
+        return createPiece(Colors.WHITE, Type.KNIGHT);
     }
+
     public static Piece createWhiteBishop() {
-        whiteCount++;
-        return new Piece(Colors.WHITE, Type.BISHOP);
+        return createPiece(Colors.WHITE, Type.BISHOP);
     }
 
     public static Piece createWhiteQueen() {
-        whiteCount++;
-        return new Piece(Colors.WHITE, Type.QUEEN);
+        return createPiece(Colors.WHITE, Type.QUEEN);
     }
+
     public static Piece createWhiteKing() {
-        whiteCount++;
-        return new Piece(Colors.WHITE, Type.KING);
+        return createPiece(Colors.WHITE, Type.KING);
     }
 
     public static Piece createBlackPawn() {
-        blackCount++;
-        return new Piece(Colors.BLACK, Type.PAWN);
+        return createPiece(Colors.BLACK, Type.PAWN);
     }
 
     public static Piece createBlackRook() {
-        blackCount++;
-        return new Piece(Colors.BLACK, Type.ROOK);
+        return createPiece(Colors.BLACK, Type.ROOK);
     }
 
     public static Piece createBlackKnight() {
-        blackCount++;
-        return new Piece(Colors.BLACK, Type.KNIGHT);
+        return createPiece(Colors.BLACK, Type.KNIGHT);
     }
 
     public static Piece createBlackBishop() {
-        blackCount++;
-        return new Piece(Colors.BLACK, Type.BISHOP);
+        return createPiece(Colors.BLACK, Type.BISHOP);
     }
 
     public static Piece createBlackQueen() {
-        blackCount++;
-        return new Piece(Colors.BLACK, Type.QUEEN);
+        return createPiece(Colors.BLACK, Type.QUEEN);
     }
 
     public static Piece createBlackKing() {
-        blackCount++;
-        return new Piece(Colors.BLACK, Type.KING);
+        return createPiece(Colors.BLACK, Type.KING);
     }
 
     public static Piece noPiece() {
-        return new Piece(Colors.WHITE, Type.NO_PIECE);
+        return createPiece(Colors.BLNK, Type.NO_PIECE);
     }
 
     /**
      * Get White Piece count
+     *
      * @return white piece count
      */
     public static int getWhiteCount() {
@@ -100,6 +103,7 @@ package pieces;
 
     /**
      * Get Black Piece count
+     *
      * @return black piece count
      */
     public static int getBlackCount() {
@@ -108,6 +112,7 @@ package pieces;
 
     /**
      * Create Pawn of a given color and printable representation
+     *
      * @param cdolor
      */
     private Piece(Colors color, Type type) {
@@ -115,32 +120,32 @@ package pieces;
         this.type = type;
     }
 
-
     /**
      * @return printable representation based on Piece.color
      */
     public char getRepresentation() {
         char representation;
 
-        if (type == Type.PAWN)
+        if (type == Type.PAWN) {
             representation = PAWN_REPRESENTATION;
-        else if (type == Type.ROOK)
+        } else if (type == Type.ROOK) {
             representation = ROOK_REPRESENTATION;
-        else if (type == Type.KNIGHT)
+        } else if (type == Type.KNIGHT) {
             representation = KNIGHT_REPRESENTATION;
-        else if (type == Type.BISHOP)
+        } else if (type == Type.BISHOP) {
             representation = BISHOP_REPRESENTATION;
-        else if (type == Type.QUEEN)
+        } else if (type == Type.QUEEN) {
             representation = QUEEN_REPRESENTATION;
-        else if (type == Type.KING)
+        } else if (type == Type.KING) {
             representation = KING_REPRESENTATION;
-        else if (type == Type.NO_PIECE)
+        } else if (type == Type.NO_PIECE) {
             representation = BLANK_REPRESENTATION;
-        else
+        } else {
             representation = '*';   // for error reprsentation
-
-        if (color == Colors.BLACK)
+        }
+        if (color == Colors.BLACK) {
             representation = Character.toUpperCase(representation);
+        }
 
         return representation;
     }
