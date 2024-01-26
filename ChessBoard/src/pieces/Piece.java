@@ -7,10 +7,10 @@ package pieces;
  */
  public class Piece {
     // Piece colors constants
-    private static enum Colors { WHITE, BLACK };
+    private static enum Colors { WHITE, BLACK, BLNK };
 
     // Piece names constants
-    public static enum Type { PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING };
+    public static enum Type { PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING, NO_PIECE };
 
     // Piece reresentation constats (eventuall fold into Type enum)
     public static char PAWN_REPRESENTATION = 'p';
@@ -19,6 +19,7 @@ package pieces;
     public static char BISHOP_REPRESENTATION = 'b';
     public static char QUEEN_REPRESENTATION = 'q';
     public static char KING_REPRESENTATION = 'k';
+    public static char BLANK_REPRESENTATION = '.';
 
 
     private static int whiteCount = 0;
@@ -85,6 +86,10 @@ package pieces;
         return new Piece(Colors.BLACK, Type.KING);
     }
 
+    public static Piece noPiece() {
+        return new Piece(Colors.WHITE, Type.NO_PIECE);
+    }
+
     /**
      * Get White Piece count
      * @return white piece count
@@ -129,8 +134,10 @@ package pieces;
             representation = QUEEN_REPRESENTATION;
         else if (type == Type.KING)
             representation = KING_REPRESENTATION;
+        else if (type == Type.NO_PIECE)
+            representation = BLANK_REPRESENTATION;
         else
-            return '.';
+            representation = '*';   // for error reprsentation
 
         if (color == Colors.BLACK)
             representation = Character.toUpperCase(representation);
@@ -148,5 +155,9 @@ package pieces;
 
     public boolean isBlack() {
         return !isWhite();
+    }
+
+    public boolean isBlank() {
+        return color == Colors.BLNK;
     }
 }

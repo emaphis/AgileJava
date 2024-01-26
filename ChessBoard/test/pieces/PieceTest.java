@@ -33,7 +33,9 @@ public class PieceTest extends TestCase {
         Piece bKing = Piece.createBlackKing();
         verifyCreation(wKing, bKing, Piece.Type.KING, Piece.KING_REPRESENTATION);
 
-
+        Piece blank = Piece.noPiece();
+        assertEquals('.', blank.getRepresentation());
+        assertEquals(Piece.Type.NO_PIECE, blank.getType());
     }
 
    private void verifyCreation(Piece whitePiece, Piece blackPiece,
