@@ -12,6 +12,15 @@ package pieces;
     // Piece names constants
     public static enum Type { PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING };
 
+    // Piece reresentation constats (eventuall fold into Type enum)
+    public static char PAWN_REPRESENTATION = 'p';
+    public static char ROOK_REPRESENTATION = 'r';
+    public static char KNIGHT_REPRESENTATION = 'n';
+    public static char BISHOP_REPRESENTATION = 'b';
+    public static char QUEEN_REPRESENTATION = 'q';
+    public static char KING_REPRESENTATION = 'k';
+
+
     private static int whiteCount = 0;
     private static int blackCount = 0;
 
@@ -91,6 +100,7 @@ package pieces;
     public static int getBlackCount() {
         return blackCount;
     }
+
     /**
      * Create Pawn of a given color and printable representation
      * @param cdolor
@@ -108,17 +118,17 @@ package pieces;
         char representation;
 
         if (type == Type.PAWN)
-            representation = 'p';
+            representation = PAWN_REPRESENTATION;
         else if (type == Type.ROOK)
-            representation = 'r';
+            representation = ROOK_REPRESENTATION;
         else if (type == Type.KNIGHT)
-            representation = 'n';
+            representation = KNIGHT_REPRESENTATION;
         else if (type == Type.BISHOP)
-            representation = 'b';
+            representation = BISHOP_REPRESENTATION;
         else if (type == Type.QUEEN)
-            representation = 'q';
+            representation = QUEEN_REPRESENTATION;
         else if (type == Type.KING)
-            representation = 'k';
+            representation = KING_REPRESENTATION;
         else
             return '.';
 
