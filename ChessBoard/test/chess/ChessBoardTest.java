@@ -2,6 +2,7 @@
 package chess;
 
 import junit.framework.TestCase;
+import pieces.Piece;
 import static util.StringUtil.addNewLine;
 
 /**
@@ -43,4 +44,11 @@ public class ChessBoardTest extends TestCase {
         assertEquals(boardRep, board.print());
     }
 
+    public void testGetNumberOfPieces() {
+        assertEquals(8, board.getNumberPieces(Piece.Colors.WHITE, Piece.PAWN_REPRESENTATION));
+        assertEquals(2, board.getNumberPieces(Piece.Colors.WHITE, Piece.ROOK_REPRESENTATION));
+        assertEquals(1, board.getNumberPieces(Piece.Colors.WHITE, Piece.QUEEN_REPRESENTATION));
+        assertEquals(1, board.getNumberPieces(Piece.Colors.BLACK, Piece.QUEEN_REPRESENTATION));
+        assertEquals(8, board.getNumberPieces(Piece.Colors.BLACK, Piece.PAWN_REPRESENTATION));
+    }
 }

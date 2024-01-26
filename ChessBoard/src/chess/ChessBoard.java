@@ -163,4 +163,37 @@ class ChessBoard {
     public int getNumberBlackPieces() {
         return Piece.getBlackCount();
     }
+
+    /**
+     * Return the number of a given Piece color and representation on the ChessBoard
+     *
+     * @param color of Piece
+     * @param representation
+     * @return number of Pieces
+     */
+    public int getNumberPieces(Piece.Colors color, char representation) {
+        int number =
+                getNumberPiecesByRank(rank1, color, representation) +
+                getNumberPiecesByRank(rank2, color, representation) +
+                getNumberPiecesByRank(rank3, color, representation) +
+                getNumberPiecesByRank(rank4, color, representation) +
+                getNumberPiecesByRank(rank5, color, representation) +
+                getNumberPiecesByRank(rank6, color, representation) +
+                getNumberPiecesByRank(rank7, color, representation) +
+                getNumberPiecesByRank(rank8, color, representation);
+        return number;
+    }
+
+    private int getNumberPiecesByRank(List<Piece> rank, Piece.Colors color, char represntation) {
+        int count = 0;
+        for (Piece piece : rank) {
+            char rep = piece.getRepresentation();
+            if (piece.getColor() == Piece.Colors.BLACK)
+                rep = Character.toLowerCase(rep);
+            if (piece.getColor() == color && rep == represntation) {
+                count++;
+            }
+        }
+        return count;
+    }
 }

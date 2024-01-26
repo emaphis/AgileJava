@@ -8,7 +8,7 @@ package pieces;
 public class Piece {
 
     // Piece colors constants
-    private static enum Colors {
+    public static enum Colors {
         WHITE, BLACK, BLNK
     };
 
@@ -152,6 +152,10 @@ public class Piece {
 
     public Piece.Type getType() {
         return type;
+    }
+
+    public Piece.Colors getColor() {
+        return color;
     }
 
     public boolean isWhite() {
