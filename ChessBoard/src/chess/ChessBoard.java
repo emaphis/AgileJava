@@ -1,7 +1,7 @@
 package chess;
 
 import pieces.Piece;
-import java.util.ArrayList;
+import java.util.*;
 import static util.StringUtil.addNewLine;
 
 /**
@@ -10,10 +10,14 @@ import static util.StringUtil.addNewLine;
  * @author emaph
  */
 class ChessBoard {
-    public ArrayList<Piece> rank1;
-    public ArrayList<Piece> rank2;
-    public ArrayList<Piece> rank7;
-    public ArrayList<Piece> rank8;
+    public List<Piece> rank1;
+    public List<Piece> rank2;
+    public List<Piece> rank3;
+    public List<Piece> rank4;
+    public List<Piece> rank5;
+    public List<Piece> rank6;
+    public List<Piece> rank7;
+    public List<Piece> rank8;
 
     public ChessBoard() {
         //initalize();
@@ -25,28 +29,32 @@ class ChessBoard {
     public final void initalize() {
         rank1 = initializeWhitePieceRank();
         rank2 = intitalizeWhitePawnRank();
+        rank3 = initializeEmptyRank();
+        rank4 = initializeEmptyRank();
+        rank5 = initializeEmptyRank();
+        rank6 = initializeEmptyRank();
         rank7 = intitalizeBlackPawnRank();
         rank8 = initializeBlackPieceRank();
     }
 
-    private ArrayList<Piece> intitalizeWhitePawnRank() {
-        ArrayList<Piece> rank = new ArrayList<Piece>();
+    private List<Piece> intitalizeWhitePawnRank() {
+        List<Piece> rank = new ArrayList<Piece>();
         for (int i = 0; i < 8; i++) {
             rank.add(Piece.createWhitePawn());
         }
         return rank;
     }
 
-    private ArrayList<Piece> intitalizeBlackPawnRank() {
-        ArrayList<Piece> rank = new ArrayList<Piece>();
+    private List<Piece> intitalizeBlackPawnRank() {
+        List<Piece> rank = new ArrayList<Piece>();
         for (int i = 0; i < 8; i++) {
             rank.add(Piece.createBlackPawn());
         }
         return rank;
     }
 
-    private ArrayList<Piece> initializeWhitePieceRank() {
-        ArrayList<Piece> rank = new ArrayList<Piece>();
+    private List<Piece> initializeWhitePieceRank() {
+        List<Piece> rank = new ArrayList<Piece>();
         rank.add(Piece.createWhiteRook());
         rank.add(Piece.createWhiteKnight());
         rank.add(Piece.createWhiteBishop());
@@ -58,8 +66,8 @@ class ChessBoard {
         return rank;
     }
 
-    private ArrayList<Piece> initializeBlackPieceRank() {
-        ArrayList<Piece> rank = new ArrayList<Piece>();
+    private List<Piece> initializeBlackPieceRank() {
+        List<Piece> rank = new ArrayList<Piece>();
         rank.add(Piece.createBlackRook());
         rank.add(Piece.createBlackKnight());
         rank.add(Piece.createBlackBishop());
@@ -71,14 +79,44 @@ class ChessBoard {
         return rank;
     }
 
+    private List<Piece> initializeEmptyRank() {
+        List rank = new ArrayList<Piece>();
+        for (int i = 0; i < 8; i++) {
+            rank.add(Piece.noPiece());
+        }
+        return rank;
+    }
+
     /**
      * Return current number of pieces board holds.
      * @return number of pieces
      */
     int getNumberPieces() {
-        return rank1.size() + rank2.size() + rank7.size() + rank8.size();
+        int number =
+                getNumberOfPiecesInRank(rank1) +
+                getNumberOfPiecesInRank(rank2) +
+                getNumberOfPiecesInRank(rank3) +
+                getNumberOfPiecesInRank(rank4) +
+                getNumberOfPiecesInRank(rank5) +
+                getNumberOfPiecesInRank(rank6) +
+                getNumberOfPiecesInRank(rank7) +
+                getNumberOfPiecesInRank(rank8);
+        return number;
     }
 
+    /**
+     * Return number of Pieces in a rank
+     * @param rank
+     * @return
+     */
+    private int getNumberOfPiecesInRank(List<Piece> rank) {
+        int count = 0;
+        for (Piece piece : rank) {
+            if (piece.getRepresentation() != Piece.BLANK_REPRESENTATION)
+                count++;
+        }
+        return count;
+    }
 
     /**
      * Lookup Piece based on index in a rank.
@@ -86,7 +124,7 @@ class ChessBoard {
      * @param index of Piece
      * @return reference to Piece
      */
-    public Piece getPiece(ArrayList<Piece> rank, int index) {
+    public Piece getPiece(List<Piece> rank, int index) {
         return rank.get(index);
     }
 
@@ -95,7 +133,7 @@ class ChessBoard {
      * @param rank
      * @return rank in printable form
      */
-    public String printRank(ArrayList<Piece> rank) {
+    public String printRank(List<Piece> rank) {
         StringBuilder build = new StringBuilder();
         for (int i = 0; i < rank.size(); i++) {
             Piece piece = rank.get(i);
@@ -108,10 +146,10 @@ class ChessBoard {
         String board =
             addNewLine(printRank(rank8)) +
             addNewLine(printRank(rank7)) +
-            addNewLine("........") +
-            addNewLine("........") +
-            addNewLine("........") +
-            addNewLine("........") +
+            addNewLine(printRank(rank6)) +
+            addNewLine(printRank(rank5)) +
+            addNewLine(printRank(rank4)) +
+            addNewLine(printRank(rank3)) +
             addNewLine(printRank(rank2)) +
             addNewLine(printRank(rank1));
 
