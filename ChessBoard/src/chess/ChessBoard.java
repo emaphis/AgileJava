@@ -196,4 +196,51 @@ class ChessBoard {
         }
         return count;
     }
+
+    /**
+     * Get Piece at ChessBoard location from white perspective.
+     *
+     *   R N B Q K B N R  8 (rank 8)
+     *   P P P P P P P P  7
+     *   . . . . . . . .  6
+     *   . . . . . . . .  5
+     *   . . . . . . . .  4
+     *   . . . . . . . .  3
+     *   p p p p p p p p  2
+     *   r n b q k b n r  1 (rank 1)
+     *
+     *   a b c d e f g h
+     *
+     * @param coordinate
+     * @return
+     */
+    public Piece getPieceWhite(String coordinates) {
+        int column = coordinates.charAt(0) - 96 - 1;
+        int rank = Character.getNumericValue(coordinates.charAt(1));
+
+       // System.out.println("c=" + column + " r=" + rank);
+
+        Piece piece = null;
+
+        if (rank == 1)
+            piece = rank1.get(column);
+        else if (rank == 2)
+            piece = rank2.get(column);
+        else if (rank == 3)
+            piece = rank3.get(column);
+        else if (rank == 4)
+            piece = rank4.get(column);
+        else if (rank == 5)
+            piece = rank5.get(column);
+        else if (rank == 6)
+            piece = rank6.get(column);
+        else if (rank == 7)
+            piece = rank7.get(column);
+        else if (rank == 8)
+            piece = rank8.get(column);
+
+        Character.getNumericValue('1');
+
+        return piece;
+    }
 }
