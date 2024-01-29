@@ -30,6 +30,14 @@ public class ChessBoardTest extends TestCase {
         assertEquals("RNBQKBNR", board.printRank(board.rank8));
     }
 
+    public void testNewBoardShouldHaveNoPiecesBeforeIntialization() {
+        ChessBoard newBoard = new ChessBoard(); // don't call initialize
+        assertEquals(0, newBoard.getNumberPieces());
+       // assertEquals(0, newBoard.getNumberWhitePieces());
+      //  assertEquals(0, newBoard.getNumberBlackPieces());
+    }
+
+
     public void testBoardRepresentation() {
         String blankRank = addNewLine("........");
         String boardRep =

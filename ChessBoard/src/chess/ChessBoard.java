@@ -20,63 +20,65 @@ class ChessBoard {
     public List<Piece> rank8;
 
     public ChessBoard() {
-        //initalize();
+        initializeEmptyBoard();
+    }
+
+    /**
+     * Initialize ChessBoard with all empty Pieces.
+     */
+    public final void initializeEmptyBoard() {
+        rank1 = initializeEmptyRank();
+        rank2 = initializeEmptyRank();
+        rank3 = initializeEmptyRank();
+        rank4 = initializeEmptyRank();
+        rank5 = initializeEmptyRank();
+        rank6 = initializeEmptyRank();
+        rank7 = initializeEmptyRank();
+        rank8 = initializeEmptyRank();
     }
 
     /**
      * Initialize the Board with Piece by Rank.
      */
     public final void initalize() {
-        rank1 = initializeWhitePieceRank();
-        rank2 = intitalizeWhitePawnRank();
-        rank3 = initializeEmptyRank();
-        rank4 = initializeEmptyRank();
-        rank5 = initializeEmptyRank();
-        rank6 = initializeEmptyRank();
-        rank7 = intitalizeBlackPawnRank();
-        rank8 = initializeBlackPieceRank();
+        updateWhitePieceRank(rank1);
+        updateWhitePawnRank(rank2);
+        updateBlackPawnRank(rank7);
+        updateBlackPieceRank(rank8);
     }
 
-    private List<Piece> intitalizeWhitePawnRank() {
-        List<Piece> rank = new ArrayList<Piece>();
-        for (int i = 0; i < 8; i++) {
-            rank.add(Piece.createWhitePawn());
+    private void updateWhitePawnRank(List<Piece> rank) {
+        for (int i = 0; i < rank.size(); i++) {
+            rank.set(i, Piece.createWhitePawn());
         }
-        return rank;
     }
 
-    private List<Piece> intitalizeBlackPawnRank() {
-        List<Piece> rank = new ArrayList<Piece>();
+    private void updateBlackPawnRank(List<Piece> rank) {
         for (int i = 0; i < 8; i++) {
-            rank.add(Piece.createBlackPawn());
+            rank.set(i, Piece.createBlackPawn());
         }
-        return rank;
     }
 
-    private List<Piece> initializeWhitePieceRank() {
-        List<Piece> rank = new ArrayList<Piece>();
-        rank.add(Piece.createWhiteRook());
-        rank.add(Piece.createWhiteKnight());
-        rank.add(Piece.createWhiteBishop());
-        rank.add(Piece.createWhiteQueen());
-        rank.add(Piece.createWhiteKing());
-        rank.add(Piece.createWhiteBishop());
-        rank.add(Piece.createWhiteKnight());
-        rank.add(Piece.createWhiteRook());
-        return rank;
+    private void updateWhitePieceRank(List<Piece> rank) {
+        rank.set(0, Piece.createWhiteRook());
+        rank.set(1, Piece.createWhiteKnight());
+        rank.set(2, Piece.createWhiteBishop());
+        rank.set(3, Piece.createWhiteQueen());
+        rank.set(4, Piece.createWhiteKing());
+        rank.set(5, Piece.createWhiteBishop());
+        rank.set(6, Piece.createWhiteKnight());
+        rank.set(7, Piece.createWhiteRook());
     }
 
-    private List<Piece> initializeBlackPieceRank() {
-        List<Piece> rank = new ArrayList<Piece>();
-        rank.add(Piece.createBlackRook());
-        rank.add(Piece.createBlackKnight());
-        rank.add(Piece.createBlackBishop());
-        rank.add(Piece.createBlackQueen());
-        rank.add(Piece.createBlackKing());
-        rank.add(Piece.createBlackBishop());
-        rank.add(Piece.createBlackKnight());
-        rank.add(Piece.createBlackRook());
-        return rank;
+    private void updateBlackPieceRank(List<Piece> rank) {
+        rank.set(0, Piece.createBlackRook());
+        rank.set(1, Piece.createBlackKnight());
+        rank.set(2, Piece.createBlackBishop());
+        rank.set(3, Piece.createBlackQueen());
+        rank.set(4, Piece.createBlackKing());
+        rank.set(5, Piece.createBlackBishop());
+        rank.set(6, Piece.createBlackKnight());
+        rank.set(7, Piece.createBlackRook());
     }
 
     private List<Piece> initializeEmptyRank() {
@@ -112,7 +114,7 @@ class ChessBoard {
     private int getNumberOfPiecesInRank(List<Piece> rank) {
         int count = 0;
         for (Piece piece : rank) {
-            if (piece.getRepresentation() != Piece.BLANK_REPRESENTATION)
+            if (piece.getType() != Piece.Type.NO_PIECE)
                 count++;
         }
         return count;
@@ -187,6 +189,8 @@ class ChessBoard {
     private int getNumberPiecesByRank(List<Piece> rank, Piece.Colors color, char represntation) {
         int count = 0;
         for (Piece piece : rank) {
+            if (piece.getType() == Piece.Type.NO_PIECE)
+                continue;
             char rep = piece.getRepresentation();
             if (piece.getColor() == Piece.Colors.BLACK)
                 rep = Character.toLowerCase(rep);
