@@ -92,6 +92,11 @@ public class Piece {
         return createPiece(Colors.BLNK, Type.NO_PIECE);
     }
 
+    public static void resetPieceCounts() {
+        Piece.whiteCount = 0;
+        Piece.blackCount = 0;
+    }
+
     /**
      * Get White Piece count
      *

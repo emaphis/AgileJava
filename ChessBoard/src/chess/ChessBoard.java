@@ -27,6 +27,7 @@ class ChessBoard {
      * Initialize ChessBoard with all empty Pieces.
      */
     public final void initializeEmptyBoard() {
+        Piece.resetPieceCounts();
         rank1 = initializeEmptyRank();
         rank2 = initializeEmptyRank();
         rank3 = initializeEmptyRank();
