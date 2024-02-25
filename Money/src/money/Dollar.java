@@ -4,8 +4,7 @@ package money;
  *
  * @author emaph
  */
-class Dollar {
-    private int amount;
+class Dollar extends Money {
 
     public Dollar(int amount) {
         this.amount = amount;
@@ -15,9 +14,4 @@ class Dollar {
         return new Dollar(amount * multiplier);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        Dollar other = (Dollar)obj;
-        return this.amount == other.amount;
-    }
 }

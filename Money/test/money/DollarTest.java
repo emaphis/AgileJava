@@ -15,10 +15,10 @@ public class DollarTest extends TestCase {
     }
 
     public void testEquality() {
-        Dollar five = new Dollar(5);
-        assertTrue(five.equals(new Dollar(5)));
-        Dollar six = new Dollar(6);
-        assertFalse(six.equals(five));
+       assertTrue(new Dollar(5).equals(new Dollar(5)));
+        assertFalse(new Dollar(5).equals(new Dollar(6)));
+        assertTrue(new Franc(5).equals(new Franc(5)));
+        assertFalse(new Franc(5).equals(new Franc(6)));
     }
 
     public void testFrancMultiplication() {
