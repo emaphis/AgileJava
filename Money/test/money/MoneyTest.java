@@ -3,10 +3,10 @@ package money;
 import junit.framework.TestCase;
 
 /**
- * Test Dollar class
+ * Test Money classes
  * @author emaph
  */
-public class DollarTest extends TestCase {
+public class MoneyTest extends TestCase {
 
     public void testMultiplication() {
         Money five = Money.dollar(5);
