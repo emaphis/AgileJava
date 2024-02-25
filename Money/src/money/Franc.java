@@ -4,20 +4,20 @@ package money;
  *
  * @author emaph
  */
-class Dollar {
+class Franc {
     private int amount;
 
-    public Dollar(int amount) {
+    public Franc(int amount) {
         this.amount = amount;
     }
 
-    Dollar times(int multiplier) {
-        return new Dollar(amount * multiplier);
+    Franc times(int multiplier) {
+        return new Franc(amount * multiplier);
     }
 
     @Override
     public boolean equals(Object obj) {
-        Dollar other = (Dollar)obj;
+        Franc other = (Franc)obj;
         return this.amount == other.amount;
     }
 }
