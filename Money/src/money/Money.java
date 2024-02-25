@@ -25,4 +25,6 @@ public abstract class Money {
                 && getClass().equals(other.getClass());
     }
 
+    abstract String currency();
+
 }
