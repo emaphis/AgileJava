@@ -7,3 +7,5 @@
  Money rounding?
  equals()
 -hashCode()-
+ Equals null
+ Equals object
