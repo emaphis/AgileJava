@@ -7,6 +7,7 @@ package money;
  */
 public abstract class Money {
     protected int amount;
+    protected String currency;
 
     static Money dollar(int amount) {
         return new Dollar(amount);
@@ -25,6 +26,8 @@ public abstract class Money {
                 && getClass().equals(other.getClass());
     }
 
-    abstract String currency();
+    String currency() {
+        return currency;
+    }
 
 }
