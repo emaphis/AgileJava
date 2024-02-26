@@ -24,6 +24,10 @@ public class MoneyTest extends TestCase {
         assertEquals(five, sum.addend);
     }
 
+    public void testIdentityRate() {
+        assertEquals(1, new Bank().rate("USD", "USD"));
+    }
+
     public void testReduceSum() {
         Expression sum= new Sum(Money.dollar(3), Money.dollar(4));
         Bank bank= new Bank();
@@ -34,6 +38,13 @@ public class MoneyTest extends TestCase {
     public void testReduceMoney() {
         Bank bank = new Bank();
         Money result = bank.reduce(Money.dollar(1), "USD");
+        assertEquals(Money.dollar(1), result);
+    }
+
+    public void testReduceMoneyDifferentCurrency() {
+        Bank bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        Money result = bank.reduce(Money.franc(2), "USD");
         assertEquals(Money.dollar(1), result);
     }
 
