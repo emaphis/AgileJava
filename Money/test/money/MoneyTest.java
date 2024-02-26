@@ -17,9 +17,12 @@ public class MoneyTest extends TestCase {
     }
 
     public void testSimpleAddition() {
-        Money sum = Money.dollar(5).plus(Money.dollar(5));
+        Money five = Money.dollar(5);
+        Money sum = five.plus(five);
         assertEquals(Money.dollar(10), sum);
-        Money sum2 = Money.dollar(5).plus(Money.dollar(6));
+
+        Money six = Money.dollar(6);
+        Money sum2 = five.plus(six);
         assertEquals(Money.dollar(11), sum2);
     }
 
