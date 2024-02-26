@@ -26,6 +26,10 @@ public class Money {
         return new Money(amount * multiplier, currency);
     }
 
+    Money plus(Money addend) {
+        return new Money(amount + addend.amount, currency);
+    }
+
     @Override
     public boolean equals(Object obj) {
         Money other = (Money)obj;
