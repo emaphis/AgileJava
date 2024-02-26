@@ -6,14 +6,14 @@ package money;
  */
 class Dollar extends Money {
 
-    public Dollar(int amount) {
+    public Dollar(int amount, String currency) {
         this.amount = amount;
-        this.currency = "USD";
+        this.currency = currency;
     }
 
     @Override
     Money times(int multiplier) {
-        return new Dollar(amount * multiplier);
+        return Money.dollar(amount * multiplier);
     }
 
 
