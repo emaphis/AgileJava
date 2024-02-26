@@ -1,12 +1,14 @@
 package money;
 
+import java.util.Objects;
+
 /**
  *
  * @author emaph
  */
 public class Pair {
-    private String from;
-    private String to;
+    private final String from;
+    private final String to;
 
     public Pair(String from, String to) {
         this.from = from;
@@ -21,6 +23,10 @@ public class Pair {
 
     @Override
     public int hashCode() {
-        return 0;
+        int hash = 5;
+        hash = 17 * hash + Objects.hashCode(this.from);
+        hash = 17 * hash + Objects.hashCode(this.to);
+        return hash;
     }
+
 }

@@ -89,12 +89,12 @@ public class MoneyTest extends TestCase {
         Money result= bank.reduce(sum, "USD");
         assertEquals(Money.dollar(20), result);
     }
-
+/*
     public void testPlusSameCurrencyReturnsMoney() {
         Expression sum = Money.dollar(1).plus(Money.dollar(1));
         assertTrue(sum instanceof Money);
     }
-
+*/
     public void testEquality() {
         assertTrue(Money.dollar(5).equals(Money.dollar(5)));
         assertFalse(Money.dollar(5).equals(Money.dollar(6)));

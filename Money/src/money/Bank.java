@@ -7,7 +7,7 @@ import java.util.Hashtable;
  * @author emaph
  */
 public class Bank {
-    private Hashtable<Pair, Integer> rates = new Hashtable<Pair, Integer>();
+    private Hashtable<Pair, Integer> rates = new Hashtable<>();
 
     void addRate(String from, String to, int rate) {
         rates.put(new Pair(from, to), new Integer(rate));

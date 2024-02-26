@@ -1,6 +1,8 @@
 
 package money;
 
+import java.util.Objects;
+
 /**
  * Common base class for money classes
  * @author emaph
@@ -22,14 +24,17 @@ public class Money implements Expression {
         this.currency = currency;
     }
 
+    @Override
     public Expression times(int multiplier) {
         return new Money(amount * multiplier, currency);
     }
 
+    @Override
     public Expression plus(Expression addend) {
         return new Sum(this, addend);
     }
 
+    @Override
     public Money reduce(Bank bank, String to) {
         int rate = bank.rate(currency, to);
         return new Money(amount / rate, to);
@@ -40,6 +45,14 @@ public class Money implements Expression {
         Money other = (Money)obj;
         return this.amount == other.amount
                 && currency().equals(other.currency());
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 23 * hash + this.amount;
+        hash = 23 * hash + Objects.hashCode(this.currency);
+        return hash;
     }
 
     String currency() {
