@@ -9,6 +9,14 @@ public class Money {
     protected int amount;
     protected String currency;
 
+    static Money franc(int amount) {
+        return new Money(amount, "CHF");
+    }
+
+    static Money dollar(int amount) {
+        return new Money(amount, "USD");
+    }
+
     public Money(int amount, String currency) {
         this.amount = amount;
         this.currency = currency;
