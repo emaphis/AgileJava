@@ -31,6 +31,12 @@ public class MoneyTest extends TestCase {
         assertEquals(Money.dollar(7), result);
     }
 
+    public void testReduceMoney() {
+        Bank bank = new Bank();
+        Money result = bank.reduce(Money.dollar(1), "USD");
+        assertEquals(Money.dollar(1), result);
+    }
+
     public void testSimpleAddition() {
         Money five = Money.dollar(5);
         Expression sum = five.plus(five);
