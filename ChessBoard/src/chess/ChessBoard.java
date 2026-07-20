@@ -3,6 +3,10 @@ package chess;
 import pieces.Piece;
 import java.util.*;
 import static util.StringUtil.addNewLine;
+import static pieces.Piece.Color.WHITE;
+import static pieces.Piece.Color.BLACK;
+
+//Piece.Color.WHITE
 
 /**
  * A class that represents a Chess Board containing a number
@@ -10,14 +14,14 @@ import static util.StringUtil.addNewLine;
  * @author emaph
  */
 class ChessBoard {
-    public List<Piece> rank1;
-    public List<Piece> rank2;
-    public List<Piece> rank3;
-    public List<Piece> rank4;
-    public List<Piece> rank5;
-    public List<Piece> rank6;
-    public List<Piece> rank7;
     public List<Piece> rank8;
+    public List<Piece> rank7;
+    public List<Piece> rank6;
+    public List<Piece> rank5;
+    public List<Piece> rank4;
+    public List<Piece> rank3;
+    public List<Piece> rank2;
+    public List<Piece> rank1;
 
     public ChessBoard() {
         initializeEmptyBoard();
@@ -42,44 +46,27 @@ class ChessBoard {
      * Initialize the Board with Piece by Rank.
      */
     public final void initalize() {
-        updateWhitePieceRank(rank1);
-        updateWhitePawnRank(rank2);
-        updateBlackPawnRank(rank7);
-        updateBlackPieceRank(rank8);
+        updatePieceRank(rank1, WHITE);
+        updatePawnRank(rank2, WHITE);
+        updatePawnRank(rank7, BLACK);
+        updatePieceRank(rank8, BLACK);
     }
 
-    private void updateWhitePawnRank(List<Piece> rank) {
+    private void updatePawnRank(List<Piece> rank, Piece.Color color) {
         for (int i = 0; i < rank.size(); i++) {
-            rank.set(i, Piece.createWhitePawn());
+            rank.set(i, Piece.createPawn(color));
         }
     }
 
-    private void updateBlackPawnRank(List<Piece> rank) {
-        for (int i = 0; i < 8; i++) {
-            rank.set(i, Piece.createBlackPawn());
-        }
-    }
-
-    private void updateWhitePieceRank(List<Piece> rank) {
-        rank.set(0, Piece.createWhiteRook());
-        rank.set(1, Piece.createWhiteKnight());
-        rank.set(2, Piece.createWhiteBishop());
-        rank.set(3, Piece.createWhiteQueen());
-        rank.set(4, Piece.createWhiteKing());
-        rank.set(5, Piece.createWhiteBishop());
-        rank.set(6, Piece.createWhiteKnight());
-        rank.set(7, Piece.createWhiteRook());
-    }
-
-    private void updateBlackPieceRank(List<Piece> rank) {
-        rank.set(0, Piece.createBlackRook());
-        rank.set(1, Piece.createBlackKnight());
-        rank.set(2, Piece.createBlackBishop());
-        rank.set(3, Piece.createBlackQueen());
-        rank.set(4, Piece.createBlackKing());
-        rank.set(5, Piece.createBlackBishop());
-        rank.set(6, Piece.createBlackKnight());
-        rank.set(7, Piece.createBlackRook());
+    private void updatePieceRank(List<Piece> rank, Piece.Color color) {
+        rank.set(0, Piece.createRook(color));
+        rank.set(1, Piece.createKnight(color));
+        rank.set(2, Piece.createBishop(color));
+        rank.set(3, Piece.createQueen(color));
+        rank.set(4, Piece.createKing(color));
+        rank.set(5, Piece.createBishop(color));
+        rank.set(6, Piece.createKnight(color));
+        rank.set(7, Piece.createRook(color));
     }
 
     private List<Piece> initializeEmptyRank() {
@@ -104,6 +91,7 @@ class ChessBoard {
                 getNumberOfPiecesInRank(rank6) +
                 getNumberOfPiecesInRank(rank7) +
                 getNumberOfPiecesInRank(rank8);
+      //  System.out.println("count = " + number);
         return number;
     }
 
@@ -115,19 +103,20 @@ class ChessBoard {
     private int getNumberOfPiecesInRank(List<Piece> rank) {
         int count = 0;
         for (Piece piece : rank) {
-            if (piece.getType() != Piece.Type.NO_PIECE)
+            if (!piece.isBlank())
                 count++;
         }
+
         return count;
     }
 
     /**
      * Lookup Piece based on index in a rank.
-     * @param  rank of Piece
+     * @param rank of Piece
      * @param index of Piece
      * @return reference to Piece
      */
-    public Piece getPiece(List<Piece> rank, int index) {
+    public Piece getPieceInRank(List<Piece> rank, int index) {
         return rank.get(index);
     }
 
@@ -138,25 +127,27 @@ class ChessBoard {
      */
     public String printRank(List<Piece> rank) {
         StringBuilder build = new StringBuilder();
-        for (int i = 0; i < rank.size(); i++) {
-            Piece piece = rank.get(i);
+        for (Piece piece : rank)
             build.append(piece.getRepresentation());
-        }
         return build.toString();
     }
 
+    /**
+     * Produce a string representation of the ChessBoard from the perspective of WHITE
+     * @return String representation of board.
+     */
     public String print() {
-        String board =
-            addNewLine(printRank(rank8)) +
-            addNewLine(printRank(rank7)) +
-            addNewLine(printRank(rank6)) +
-            addNewLine(printRank(rank5)) +
-            addNewLine(printRank(rank4)) +
-            addNewLine(printRank(rank3)) +
-            addNewLine(printRank(rank2)) +
-            addNewLine(printRank(rank1));
+        StringBuilder builder = new StringBuilder();
+        builder.append(addNewLine(printRank(rank8)));
+        builder.append(addNewLine(printRank(rank7)));
+        builder.append(addNewLine(printRank(rank6)));
+        builder.append(addNewLine(printRank(rank5)));
+        builder.append(addNewLine(printRank(rank4)));
+        builder.append(addNewLine(printRank(rank3)));
+        builder.append(addNewLine(printRank(rank2)));
+        builder.append(addNewLine(printRank(rank1)));
 
-        return board;
+        return builder.toString();
     }
 
     public int getNumberWhitePieces() {
@@ -174,29 +165,29 @@ class ChessBoard {
      * @param representation
      * @return number of Pieces
      */
-    public int getNumberPieces(Piece.Colors color, char representation) {
+    public int countPieces(Piece.Color color, char representation) {
         int number =
-                getNumberPiecesByRank(rank1, color, representation) +
-                getNumberPiecesByRank(rank2, color, representation) +
-                getNumberPiecesByRank(rank3, color, representation) +
-                getNumberPiecesByRank(rank4, color, representation) +
-                getNumberPiecesByRank(rank5, color, representation) +
-                getNumberPiecesByRank(rank6, color, representation) +
-                getNumberPiecesByRank(rank7, color, representation) +
-                getNumberPiecesByRank(rank8, color, representation);
+                countPiecesByRank(rank1, color, representation) +
+                countPiecesByRank(rank2, color, representation) +
+                countPiecesByRank(rank3, color, representation) +
+                countPiecesByRank(rank4, color, representation) +
+                countPiecesByRank(rank5, color, representation) +
+                countPiecesByRank(rank6, color, representation) +
+                countPiecesByRank(rank7, color, representation) +
+                countPiecesByRank(rank8, color, representation);
         return number;
     }
 
-    private int getNumberPiecesByRank(List<Piece> rank, Piece.Colors color, char represntation) {
+    private int countPiecesByRank(List<Piece> rank, Piece.Color color, char represntation) {
         int count = 0;
         for (Piece piece : rank) {
-            if (piece.getType() == Piece.Type.NO_PIECE)
-                continue;
-            char rep = piece.getRepresentation();
-            if (piece.getColor() == Piece.Colors.BLACK)
-                rep = Character.toLowerCase(rep);
-            if (piece.getColor() == color && rep == represntation) {
-                count++;
+            if (piece.getType() != Piece.Type.NO_PIECE) {
+                char rep = piece.getRepresentation();
+                if (piece.getColor() == BLACK)
+                    rep = Character.toLowerCase(rep);
+                if (piece.getColor() == color && rep == represntation) {
+                    count++;
+                }
             }
         }
         return count;
@@ -219,7 +210,7 @@ class ChessBoard {
      * @param coordinate
      * @return
      */
-    public Piece getPieceWhite(String coordinates) {
+    public Piece getPiece(String coordinates) {
         int column = coordinates.charAt(0) - 96 - 1;
         int rank = Character.getNumericValue(coordinates.charAt(1));
 
