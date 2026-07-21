@@ -8,7 +8,7 @@ package pieces;
 public class Piece {
 
     // Piece color constants
-    public static enum Color {
+    protected static enum Color {
         WHITE, BLACK, BLNK
     };
 
@@ -50,28 +50,53 @@ public class Piece {
     }
 
 
-    public static Piece createPawn(Color color) {
-        return createPiece(color, Type.PAWN);
+    public static Piece createWhitePawn() {
+        return createPiece(Color.WHITE, Type.PAWN);
     }
 
-    public static Piece createRook(Color color) {
-        return createPiece(color, Type.ROOK);
+    public static Piece createWhiteRook() {
+        return createPiece(Color.WHITE, Type.ROOK);
     }
 
-    public static Piece createKnight(Color color) {
-        return createPiece(color, Type.KNIGHT);
+    public static Piece createWhiteKnight() {
+        return createPiece(Color.WHITE, Type.KNIGHT);
     }
 
-    public static Piece createBishop(Color color) {
-        return createPiece(color, Type.BISHOP);
+    public static Piece createWhiteBishop() {
+        return createPiece(Color.WHITE, Type.BISHOP);
     }
 
-    public static Piece createQueen(Color color) {
-        return createPiece(color, Type.QUEEN);
+    public static Piece createWhiteQueen() {
+        return createPiece(Color.WHITE, Type.QUEEN);
     }
 
-    public static Piece createKing(Color color) {
-        return createPiece(color, Type.KING);
+    public static Piece createWhiteKing() {
+        return createPiece(Color.WHITE, Type.KING);
+    }
+
+
+    public static Piece createBlackPawn() {
+        return createPiece(Color.BLACK, Type.PAWN);
+    }
+
+    public static Piece createBlackRook() {
+        return createPiece(Color.BLACK, Type.ROOK);
+    }
+
+    public static Piece createBlackKnight() {
+        return createPiece(Color.BLACK, Type.KNIGHT);
+    }
+
+    public static Piece createBlackBishop() {
+        return createPiece(Color.BLACK, Type.BISHOP);
+    }
+
+    public static Piece createBlackQueen() {
+        return createPiece(Color.BLACK, Type.QUEEN);
+    }
+
+    public static Piece createBlackKing() {
+        return createPiece(Color.BLACK, Type.KING);
     }
 
     public static Piece noPiece() {
@@ -150,8 +175,13 @@ public class Piece {
         return type;
     }
 
-    public Piece.Color getColor() {
-        return color;
+    public String getColor() {
+        if (color == Color.WHITE)
+            return "white";
+        else if (color == Color.BLACK)
+            return "black";
+        else
+            return "blank";
     }
 
     public boolean isWhite() {

@@ -1,9 +1,6 @@
 package pieces;
 
 import junit.framework.TestCase;
-import static pieces.Piece.Color.WHITE;
-import static pieces.Piece.Color.BLACK;
-import static pieces.Piece.Color.BLNK;
 
 /**
  * Test the Pawn class
@@ -12,28 +9,28 @@ import static pieces.Piece.Color.BLNK;
 public class PieceTest extends TestCase {
 
    public void testCreate() {
-        Piece wPawn = Piece.createPawn(WHITE);
-        Piece bPawn = Piece.createPawn(BLACK);
+        Piece wPawn = Piece.createWhitePawn();
+        Piece bPawn = Piece.createBlackPawn();
         verifyCreation(wPawn, bPawn, Piece.Type.PAWN, Piece.PAWN_REPRESENTATION);
 
-        Piece wRook = Piece.createRook(WHITE);
-        Piece bRook = Piece.createRook(BLACK);
+        Piece wRook = Piece.createWhiteRook();
+        Piece bRook = Piece.createBlackRook();
         verifyCreation(wRook, bRook, Piece.Type.ROOK, Piece.ROOK_REPRESENTATION);
 
-        Piece wKnight = Piece.createKnight(WHITE);
-        Piece bKnight = Piece.createKnight(BLACK);
+        Piece wKnight = Piece.createWhiteKnight();
+        Piece bKnight = Piece.createBlackKnight();
         verifyCreation(wKnight, bKnight, Piece.Type.KNIGHT, Piece.KNIGHT_REPRESENTATION);
 
-        Piece wBishop = Piece.createBishop(WHITE);
-        Piece bBishop = Piece.createBishop(BLACK);
+        Piece wBishop = Piece.createWhiteBishop();
+        Piece bBishop = Piece.createBlackBishop();
         verifyCreation(wBishop, bBishop, Piece.Type.BISHOP, Piece.BISHOP_REPRESENTATION);
 
-        Piece wQueen = Piece.createQueen(WHITE);
-        Piece bQueen = Piece.createQueen(BLACK);
+        Piece wQueen = Piece.createWhiteQueen();
+        Piece bQueen = Piece.createBlackQueen();
         verifyCreation(wQueen, bQueen, Piece.Type.QUEEN, Piece.QUEEN_REPRESENTATION);
 
-        Piece wKing = Piece.createKing(Piece.Color.WHITE);
-        Piece bKing = Piece.createKing(Piece.Color.BLACK);
+        Piece wKing = Piece.createWhiteKing();
+        Piece bKing = Piece.createBlackKing();
         verifyCreation(wKing, bKing, Piece.Type.KING, Piece.KING_REPRESENTATION);
 
         Piece blank = Piece.noPiece();
@@ -54,8 +51,8 @@ public class PieceTest extends TestCase {
    }
 
    public void testColorPredicates() {
-        Piece pawn1 = Piece.createPawn(WHITE);
-        Piece pawn2 = Piece.createPawn(BLACK);
+        Piece pawn1 = Piece.createWhitePawn();
+        Piece pawn2 = Piece.createBlackPawn();
         Piece empty = Piece.noPiece();
 
         assertTrue(pawn1.isWhite());
